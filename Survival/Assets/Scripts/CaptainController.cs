@@ -15,6 +15,7 @@ public class CaptainController : MonoBehaviour
     private int mushrooms;
     private int skulls;
     private int gems;
+    private float lastAttackTime;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +26,16 @@ public class CaptainController : MonoBehaviour
         this.right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
         this.booty.text = "Booty";
+        this.lastAttackTime = -1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time - lastAttackTime >= 0.5f)
         {
             this.fire1.Execute(this.gameObject);
+            lastAttackTime = Time.time;
         }
         if (Input.GetAxis("Vertical") > 0.01)
         {

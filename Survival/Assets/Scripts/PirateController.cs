@@ -12,18 +12,42 @@ public class PirateController : MonoBehaviour
     [SerializeField]
     public GameObject productPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 1.0f;
+    private float limitSpace;
+
+
+// Start is called before the first frame update
+void Start()
     {
         this.activeCommand = ScriptableObject.CreateInstance<SlowWorkerPirateCommand>();
+        limitSpace = Random.Range(-19, 19);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (limitSpace > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         var working = this.activeCommand.Execute(this.gameObject, this.productPrefab);
 
         this.gameObject.GetComponent<Animator>().SetBool("Exhausted", !working);
+
+        float everyStep = speed * Time.deltaTime;
+        Vector3 targetposition = new Vector3(limitSpace, 0, 0);
+        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, everyStep);
+
+        if (Vector3.Distance(this.gameObject.transform.position, targetposition) < 0.1f)
+        {
+            limitSpace = Random.Range(-19, 19);
+        } 
+        
     }
 
     //Has received motivation. A likely source is from on of the Captain's morale inducements.
@@ -34,15 +58,24 @@ public class PirateController : MonoBehaviour
         switch (workStyle)
         {
             case 1:
-                this.activeCommand = Object.Instantiate(ScriptableObject.CreateInstance<SlowWorkerPirateCommand>());
+                StartCoroutine(prefabDelay());
                 break;
             case 2:
-                this.activeCommand = Object.Instantiate(ScriptableObject.CreateInstance<NormalWorkerPirateCommand>());
+                StartCoroutine(prefabDelay());
                 break;
             case 3:
-                this.activeCommand = Object.Instantiate(ScriptableObject.CreateInstance<FastWorkerPirateCommand>());
+                StartCoroutine(prefabDelay());
                 break;
         }
-        
+
+    }
+
+    IEnumerator prefabDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(this.gameObject);
+        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5),0,0), Quaternion.identity);
+        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
+        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
     }
 }
