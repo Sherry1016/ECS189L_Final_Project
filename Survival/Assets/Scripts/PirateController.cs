@@ -2,29 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Captain.Command;
+//using Captain.Command;
 
 public class PirateController : MonoBehaviour
 {
-    [SerializeField]
-    public IPirateCommand activeCommand;
-    
-    [SerializeField]
-    public GameObject productPrefab;
-
-    public float speed = 1.0f;
+    public float speed = 5.0f;
+    public float version = 2.0f;
     private float limitSpace;
+    private bool isright;
+    private Vector3 targetposition;
+    private Transform player;
+    private bool isattack;
+    public Animator animator;
 
-
-// Start is called before the first frame update
-void Start()
+    void Start()
     {
-        this.activeCommand = ScriptableObject.CreateInstance<SlowWorkerPirateCommand>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         limitSpace = Random.Range(-19, 19);
+        isright = limitSpace >= transform.position.x;
+        gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
+        targetposition = new Vector3(limitSpace, transform.position.y, 0);
     }
 
+    private void Update()
+    {
+        
+        if (Vector3.Distance(this.gameObject.transform.position, player.position) < version)
+        {
+            isright = player.position.x >= transform.position.x;
+            gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
+            this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.position, speed * Time.deltaTime);
+            isattack = true;
+        }
+        else
+        {
+            isattack = false;
+            if (Vector3.Distance(this.gameObject.transform.position, targetposition) > 0.1f)
+            {
+                isright = targetposition.x >= transform.position.x;
+                gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
+                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, speed * Time.deltaTime);
+            }
+            else
+            {
+                limitSpace = Random.Range(-19, 19);
+                isright = limitSpace >= transform.position.x;
+                gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
+                targetposition = new Vector3(limitSpace, transform.position.y, 0);
+            }
+        }
+
+        
+        animator.SetBool("isattack", isattack);
+    }
+
+    
+
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
         if (limitSpace > 0)
         {
@@ -40,7 +75,7 @@ void Start()
         this.gameObject.GetComponent<Animator>().SetBool("Exhausted", !working);
 
         float everyStep = speed * Time.deltaTime;
-        Vector3 targetposition = new Vector3(limitSpace, 0, 0);
+        Vector3 targetposition = new Vector3(limitSpace, transform.position.y, 0);
         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, everyStep);
 
         if (Vector3.Distance(this.gameObject.transform.position, targetposition) < 0.1f)
@@ -48,34 +83,13 @@ void Start()
             limitSpace = Random.Range(-19, 19);
         } 
         
-    }
+    }*/
 
     //Has received motivation. A likely source is from on of the Captain's morale inducements.
     public void Motivate()
     {
-        var rand = new System.Random();
-        int workStyle = rand.Next(1,4);
-        switch (workStyle)
-        {
-            case 1:
-                StartCoroutine(prefabDelay());
-                break;
-            case 2:
-                StartCoroutine(prefabDelay());
-                break;
-            case 3:
-                StartCoroutine(prefabDelay());
-                break;
-        }
+       
 
     }
 
-    IEnumerator prefabDelay()
-    {
-        yield return new WaitForSeconds(0.2f);
-        Destroy(this.gameObject);
-        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5),0,0), Quaternion.identity);
-        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-        Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-    }
 }

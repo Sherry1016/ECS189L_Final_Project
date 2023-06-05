@@ -9,6 +9,7 @@ public class MainCharacter : MonoBehaviour
     private float yvalue;
     public float speed;
     private bool isattack;
+    private bool isfireball;
 
     
     void Start()
@@ -34,6 +35,7 @@ public class MainCharacter : MonoBehaviour
     {
         MoveCharacter();
         Attack();
+        FireBall();
     }
 
     private void Attack()
@@ -49,6 +51,21 @@ public class MainCharacter : MonoBehaviour
         }
         animator.SetBool("isattack", isattack);
     }
+
+    private void FireBall()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            isfireball = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            isfireball = false;
+        }
+        animator.SetBool("isfireball", isfireball);
+    }
+
 
     private void OnTriggerStay2D (Collider other)
     {
