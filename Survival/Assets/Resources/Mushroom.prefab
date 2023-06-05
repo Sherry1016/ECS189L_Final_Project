@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5907432118394791198}
   m_Layer: 0
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Pirate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59a078325b061e419cc18aa06e02c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   version: 2
   animator: {fileID: 6234487186385999707}
+  blood: 100

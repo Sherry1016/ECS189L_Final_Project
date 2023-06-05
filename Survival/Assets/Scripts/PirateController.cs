@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class PirateController : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float version = 2.0f;
+    public float speed;
+    public float version;
     private float limitSpace;
     private bool isright;
     private Vector3 targetposition;
     private Transform player;
     private bool isattack;
     public Animator animator;
+    public int blood;
 
     void Start()
     {
@@ -52,6 +53,10 @@ public class PirateController : MonoBehaviour
             }
         }
 
+        if (blood <= 0)
+        {
+            Destroy(gameObject);
+        }
         
         animator.SetBool("isattack", isattack);
     }
