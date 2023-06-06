@@ -70,7 +70,6 @@ public class PirateController : MonoBehaviour
         if (blood <= 0)
         {
             spawnSystem.MonsterKilled(gameObject);
-            Debug.Log("Monster Destroied");
             Destroy(gameObject);
         }
         
