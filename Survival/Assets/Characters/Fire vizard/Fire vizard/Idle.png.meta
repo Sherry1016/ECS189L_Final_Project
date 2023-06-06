@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0777617b819425428a44960f9d92780
+guid: c412ecd866c2c1d4986307d8f8556123
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flame_jet 3_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f2aebe9c48383d48a408a03e63c00ed
-      internalID: 1180171220
+      spriteID: ffaa44dc0c67e8d4fbd7d217140d3c25
+      internalID: -186997943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_1
+      name: Idle_1
       rect:
         serializedVersion: 2
         x: 128
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fdcc415bcf4754b87a48fd98f66e5a
-      internalID: 1519099912
+      spriteID: 809d8c1115f29574da5a6a4271586a5d
+      internalID: 718917695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_2
+      name: Idle_2
       rect:
         serializedVersion: 2
         x: 256
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 059d62132ff33324db70c9fc83302f27
-      internalID: 1875597475
+      spriteID: d94bce5dd78d2b246b16ff86ee93e743
+      internalID: -724817804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_3
+      name: Idle_3
       rect:
         serializedVersion: 2
         x: 384
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41a32a46012dbb4688b7b5100c76899
-      internalID: 1112812769
+      spriteID: 9341281da91fcb14b9ee200e4a17ccaa
+      internalID: -377804692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_4
+      name: Idle_4
       rect:
         serializedVersion: 2
         x: 512
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c8affb912b22554c88e92ad1e7da241
-      internalID: 1051103862
+      spriteID: 2a633c4e298e56049add78fc4d3fb812
+      internalID: 539790585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_5
+      name: Idle_5
       rect:
         serializedVersion: 2
         x: 640
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9a44cfc1ebccc489ba8d26f5fb9bcb
-      internalID: 1832293550
+      spriteID: b2656c03f72c73a459e75c7006901044
+      internalID: -965777247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet 3_6
+      name: Idle_6
       rect:
         serializedVersion: 2
         x: 768
@@ -247,155 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 845ae3daff5b5124591c58966aeafdc9
-      internalID: 1439588288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0a8b1d4ad7000d448340bc0afe502c5
-      internalID: -1300336264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0817feb7da292194ebb4c4a4663aaa51
-      internalID: -524865811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b2afcdb59e5068428fbb2146531624d
-      internalID: 1411359519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b50ff3ce9083b6540959baa09a9c86db
-      internalID: 1617138591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 558222daeba7b7c46bc242383007ba44
-      internalID: -1510238190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_12
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9447886f470899d4e838079916eed747
-      internalID: -814822522
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flame_jet 3_13
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68f32aaabb05b9e4888f2aa35a4ff7ab
-      internalID: -883652224
+      spriteID: e188e40d1a65fa74c99e01ba0ed81c72
+      internalID: 1546975963
       vertices: []
       indices: 
       edges: []
@@ -411,20 +264,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Flame_jet 3_0: 1180171220
-      Flame_jet 3_1: 1519099912
-      Flame_jet 3_10: 1617138591
-      Flame_jet 3_11: -1510238190
-      Flame_jet 3_12: -814822522
-      Flame_jet 3_13: -883652224
-      Flame_jet 3_2: 1875597475
-      Flame_jet 3_3: 1112812769
-      Flame_jet 3_4: 1051103862
-      Flame_jet 3_5: 1832293550
-      Flame_jet 3_6: 1439588288
-      Flame_jet 3_7: -1300336264
-      Flame_jet 3_8: -524865811
-      Flame_jet 3_9: 1411359519
+      Idle_0: -186997943
+      Idle_1: 718917695
+      Idle_2: -724817804
+      Idle_3: -377804692
+      Idle_4: 539790585
+      Idle_5: -965777247
+      Idle_6: 1546975963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
