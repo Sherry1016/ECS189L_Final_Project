@@ -16,6 +16,7 @@ public class PirateController : MonoBehaviour
     public Animator animator;
     public int blood;
     public int damage = 35;
+    private SpawnSystem spawnSystem;
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class PirateController : MonoBehaviour
         isright = limitSpace >= transform.position.x;
         gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
         targetposition = new Vector3(limitSpace, transform.position.y, 0);
+        GameObject spawnSystemObject = GameObject.Find("SpawnSystem");
+        if (spawnSystemObject != null)
+        {
+            spawnSystem = spawnSystemObject.GetComponent<SpawnSystem>();
+        }
     }
 
     private void Update()
@@ -63,6 +69,8 @@ public class PirateController : MonoBehaviour
 
         if (blood <= 0)
         {
+            spawnSystem.MonsterKilled(gameObject);
+            Debug.Log("Monster Destroied");
             Destroy(gameObject);
         }
         
