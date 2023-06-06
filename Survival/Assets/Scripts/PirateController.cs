@@ -15,6 +15,7 @@ public class PirateController : MonoBehaviour
     private bool isattack;
     public Animator animator;
     public int blood;
+    public int damage = 35;
 
     void Start()
     {
@@ -34,6 +35,13 @@ public class PirateController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.position, speed * Time.deltaTime);
             isattack = true;
+            /*if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version) && (isattack == true))
+            {
+                Debug.Log("damage");
+                MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
+                mainCharacter.life -= damage;
+                isattack = false;
+            }*/
         }
         else
         {
@@ -98,3 +106,4 @@ public class PirateController : MonoBehaviour
     }
 
 }
+

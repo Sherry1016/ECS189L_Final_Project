@@ -5,8 +5,9 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
     private Vector3 targetposition;
-    private Transform pirate;
+    private Transform[] pirates;
     public Animator animator;
+    public int life = 100;
     private float elapsedTime;
     private const float DURATION = 0.4f;
     private float xvalue;
@@ -41,24 +42,36 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (pirate == null)
+        GameObject[] pirateObjects = GameObject.FindGameObjectsWithTag("Pirate");
+        pirates = new Transform[pirateObjects.Length];
+    
+        for (int i = 0; i < pirateObjects.Length; i++)
         {
-            pirate = GameObject.FindGameObjectWithTag("Pirate").transform;
+            pirates[i] = pirateObjects[i].transform;
         }
 
         MoveCharacter();
         Attack();
         FireBall();
-        if (isattack && pirate != null)
+        
+        foreach (Transform pirate in pirates)
         {
-            //blood hurt
-            if (Vector3.Distance(this.gameObject.transform.position, pirate.position) < version)
+            if (pirate != null && isattack)
             {
-                Debug.Log("attack");
-                PirateController pirateController = pirate.GetComponent<PirateController>();
-                pirateController.blood -= attackPower;
-                isattack = false;
+                //blood hurt
+                if (Vector3.Distance(this.gameObject.transform.position, pirate.position) < version)
+                {
+                    Debug.Log("attack");
+                    PirateController pirateController = pirate.GetComponent<PirateController>();
+                    pirateController.blood -= attackPower;
+                    isattack = false;
+                }
             }
+        }
+
+        if (life <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
