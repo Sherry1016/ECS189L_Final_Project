@@ -34,6 +34,15 @@ public class MainCharacter : MonoBehaviour
             transform.Translate(xvalue * speed * Time.deltaTime * Vector2.right);
         }
 
+        if (yvalue != 0)
+        {
+            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            if (rigidBody.velocity.y==0)
+            {
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 8);
+            }
+        }
+
         animator.SetBool("iswalk", xvalue != 0);
     }
 

@@ -124,3 +124,4 @@ MonoBehaviour:
   animator: {fileID: 7364001700670159860}
   blood: 100
   damage: 35
+  knockbackForce: 5
