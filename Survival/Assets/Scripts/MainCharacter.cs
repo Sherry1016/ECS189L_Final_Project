@@ -8,8 +8,6 @@ public class MainCharacter : MonoBehaviour
     private Transform[] pirates;
     public Animator animator;
     public int life = 100;
-    private float elapsedTime;
-    private const float DURATION = 0.4f;
     private float xvalue;
     private float yvalue;
     public float speed;
@@ -21,7 +19,6 @@ public class MainCharacter : MonoBehaviour
     void Start()
     {
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
-        this.elapsedTime = 0.0f;
         isattack = false;
         isfireball = false;
     }
@@ -81,12 +78,10 @@ public class MainCharacter : MonoBehaviour
         {
             isattack = true;
         }
-
-        if (Input.GetKeyUp(KeyCode.J))
+        else
         {
             isattack = false;
         }
-        
         animator.SetBool("isattack", isattack);
     }
 
@@ -96,26 +91,10 @@ public class MainCharacter : MonoBehaviour
         {
             isfireball = true;
         }
-
-        if (Input.GetKeyUp(KeyCode.K))
+        else
         {
             isfireball = false;
         }
         animator.SetBool("isfireball", isfireball);
     }
-
-    /*private void OnTriggerStay2D(Collider2D other)
-    {
-        if (isattack && other.gameObject.CompareTag("Pirate"))
-        {
-            // blood hurt
-            PirateController pirateController = other.gameObject.GetComponent<PirateController>();
-            isattack = false;
-            if (pirateController != null)
-            {
-                pirateController.blood -= attackPower;
-                Debug.Log("Pirate health: " + pirateController.blood);
-            }
-        }
-    }*/
 }
