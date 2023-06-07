@@ -13,13 +13,16 @@ public class MainCharacter : MonoBehaviour
     private float xvalue;
     private float yvalue;
     public float speed;
-    public float version;
     private bool isattack;
     private bool isfireball;
     private bool isflame;
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
+
+    private BoxCollider2D attackCollider;
+    public float attackRange = 2.0f;
+    public float attackHeight = 1.0f;
 
     void Start()
     {
@@ -35,7 +38,6 @@ public class MainCharacter : MonoBehaviour
 
         if (xvalue != 0)
         {
-            Debug.Log(speed);
             gameObject.GetComponent<SpriteRenderer>().flipX = xvalue < 0;
             transform.Translate(xvalue * speed * Time.deltaTime * Vector2.right);
         }
@@ -68,33 +70,6 @@ public class MainCharacter : MonoBehaviour
         Dodge();
         MoveCharacter();
         
-        foreach (Transform pirate in pirates)
-        {
-            if (pirate != null)
-            {
-                if (isattack)
-                {
-                    Vector3 distanceVector = pirate.position - this.gameObject.transform.position;
-                    float distance = distanceVector.magnitude;
-                    //blood hurt
-                    if ((distance < version && gameObject.GetComponent<SpriteRenderer>().flipX == false) || (distance > -version && gameObject.GetComponent<SpriteRenderer>().flipX == true))
-                    {
-                        Debug.Log("attack");
-                        PirateController pirateController = pirate.GetComponent<PirateController>();
-                        pirateController.blood -= attackPower;
-                        isattack = false;
-                    }
-                }
-                /*else if ((pirate.position - productPrefab.transform.position).magnitude < version)
-                {
-                    //blood hurt
-                    Debug.Log("boom");
-                    PirateController pirateController = pirate.GetComponent<PirateController>();
-                    pirateController.blood -= attackPower;
-                }*/
-            }
-
-        }
 
         if (life <= 0)
         {
@@ -109,11 +84,18 @@ public class MainCharacter : MonoBehaviour
         {
             animator.SetTrigger("attack");
             nextAttackTime = Time.time + attackCooldown;
+            attackCollider = gameObject.AddComponent<BoxCollider2D>();
+            attackCollider.isTrigger = true;
+            attackCollider.size = new Vector2(attackRange, attackHeight);
             isattack = true;
         }
         else
         {
             isattack = false;
+            if (attackCollider != null)
+            {
+                Destroy(attackCollider);
+            }
         }
     }
 
@@ -189,6 +171,17 @@ public class MainCharacter : MonoBehaviour
             else
             {
                 rigidBody.velocity = new Vector2(-6, rigidBody.velocity.y);
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.gameObject.CompareTag("Pirate")) {
+            if (isattack) {
+                Debug.Log("attack");
+                PirateController pirateController = other.gameObject.GetComponent<PirateController>();
+                pirateController.blood -= attackPower;
             }
         }
     }
