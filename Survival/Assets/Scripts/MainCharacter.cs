@@ -35,6 +35,7 @@ public class MainCharacter : MonoBehaviour
 
         if (xvalue != 0)
         {
+            Debug.Log(speed);
             gameObject.GetComponent<SpriteRenderer>().flipX = xvalue < 0;
             transform.Translate(xvalue * speed * Time.deltaTime * Vector2.right);
         }
@@ -123,13 +124,13 @@ public class MainCharacter : MonoBehaviour
             nextAttackTime = Time.time + attackCooldown;
             isfireball = true;
             StartCoroutine(DelayedFireBall());
+            animator.SetTrigger("fireball");
         }
         else
         {
             isfireball = false;
         }
 
-        animator.SetBool("isfireball", isfireball);
     }
 
     private IEnumerator DelayedFireBall()
@@ -159,6 +160,7 @@ public class MainCharacter : MonoBehaviour
         }
         fireballRigidbody.velocity = new Vector2(fireballRigidbody.velocity.x, 0);
         fireballRigidbody.gravityScale = 0;
+        Destroy(fireball, 2f);
     }
 
 
@@ -167,12 +169,12 @@ public class MainCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             isflame = true;
+            animator.SetTrigger("flame");
         }
         else
         {
             isflame = false;
         }
-        animator.SetBool("isflame", isflame);
     }
 
     private void Dodge()
