@@ -134,7 +134,7 @@ public class MainCharacter : MonoBehaviour
 
     private IEnumerator DelayedFireBall()
     {
-        // Wait for 1 second
+        // Wait for 0.75 second
         yield return new WaitForSeconds(0.75f);
         
         float direction = 0f;
