@@ -14,6 +14,7 @@ public class MainCharacter : MonoBehaviour
     public float version;
     private bool isattack;
     private bool isfireball;
+    private bool isflame;
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
@@ -110,6 +111,19 @@ public class MainCharacter : MonoBehaviour
             isfireball = false;
         }
         animator.SetBool("isfireball", isfireball);
+    }
+
+    private void Flame()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isflame = true;
+        }
+        else
+        {
+            isflame = false;
+        }
+        animator.SetBool("isflame", isflame);
     }
 
     private void Dodge()
