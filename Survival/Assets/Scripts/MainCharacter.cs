@@ -15,6 +15,8 @@ public class MainCharacter : MonoBehaviour
     private bool isattack;
     private bool isfireball;
     public int attackPower = 35;
+    private float attackCooldown = 1.0f;
+    private float nextAttackTime = 0.0f;
 
     void Start()
     {
@@ -83,15 +85,17 @@ public class MainCharacter : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && Time.time > nextAttackTime)
         {
+            animator.SetTrigger("attack");
             isattack = true;
+
+            nextAttackTime = Time.time + attackCooldown;
         }
         else
         {
             isattack = false;
         }
-        animator.SetBool("isattack", isattack);
     }
 
     private void FireBall()
