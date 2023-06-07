@@ -17,6 +17,8 @@ public class PirateController : MonoBehaviour
     public int blood;
     public int damage = 35;
     private SpawnSystem spawnSystem;
+    private float attackCooldown = 1.0f;
+    private float nextAttackTime = 0.0f;
 
     void Start()
     {
@@ -113,4 +115,3 @@ public class PirateController : MonoBehaviour
     }
 
 }
-

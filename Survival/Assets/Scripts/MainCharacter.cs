@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject productPrefab;
     private Vector3 targetposition;
     private Transform[] pirates;
     public Animator animator;
@@ -67,22 +69,36 @@ public class MainCharacter : MonoBehaviour
         
         foreach (Transform pirate in pirates)
         {
-            if (pirate != null && isattack)
+            if (pirate != null)
             {
-                //blood hurt
-                if (Vector3.Distance(this.gameObject.transform.position, pirate.position) < version)
+                if (isattack)
                 {
-                    Debug.Log("attack");
+                    Vector3 distanceVector = pirate.position - this.gameObject.transform.position;
+                    float distance = distanceVector.magnitude;
+                    //blood hurt
+                    if ((distance < version && gameObject.GetComponent<SpriteRenderer>().flipX == false) || (distance > -version && gameObject.GetComponent<SpriteRenderer>().flipX == true))
+                    {
+                        Debug.Log("attack");
+                        PirateController pirateController = pirate.GetComponent<PirateController>();
+                        pirateController.blood -= attackPower;
+                        isattack = false;
+                    }
+                }
+                /*else if ((pirate.position - productPrefab.transform.position).magnitude < version)
+                {
+                    //blood hurt
+                    Debug.Log("boom");
                     PirateController pirateController = pirate.GetComponent<PirateController>();
                     pirateController.blood -= attackPower;
-                    isattack = false;
-                }
+                }*/
             }
+
         }
 
         if (life <= 0)
         {
-            Destroy(gameObject);
+            Debug.Log("No blood");
+            //Destroy(gameObject);
         }
     }
 
@@ -91,9 +107,8 @@ public class MainCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && Time.time > nextAttackTime)
         {
             animator.SetTrigger("attack");
-            isattack = true;
-
             nextAttackTime = Time.time + attackCooldown;
+            isattack = true;
         }
         else
         {
@@ -103,14 +118,38 @@ public class MainCharacter : MonoBehaviour
 
     private void FireBall()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && Time.time > nextAttackTime)
         {
+            nextAttackTime = Time.time + attackCooldown;
             isfireball = true;
+            float direction = 0f;
+            if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+            {
+                direction = 0.7f;
+            }
+            else if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+            {
+                direction = -0.7f;
+            }
+            Vector3 fireballPosition = transform.position + new Vector3(direction, -1f, 0f);
+            GameObject fireball = Instantiate(productPrefab, fireballPosition, Quaternion.identity);
+            Rigidbody2D fireballRigidbody = fireball.GetComponent<Rigidbody2D>();
+            if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+            {
+                fireballRigidbody.velocity = transform.right * 5;
+            }
+            else if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+            {
+                fireballRigidbody.velocity = transform.right * -5;
+            }
+            fireballRigidbody.velocity = new Vector2(fireballRigidbody.velocity.x, 0);
+            fireballRigidbody.gravityScale = 0;
         }
         else
         {
             isfireball = false;
         }
+
         animator.SetBool("isfireball", isfireball);
     }
 

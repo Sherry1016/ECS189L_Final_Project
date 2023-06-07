@@ -7794,6 +7794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0821086201a4b60bf198509c9c9e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productPrefab: {fileID: 3125093301620040353, guid: 24f449961098f0e4d922fa25241a1ad5,
+    type: 3}
   animator: {fileID: 1441719827}
   life: 100
   speed: 5
