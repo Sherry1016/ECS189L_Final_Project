@@ -61,6 +61,7 @@ public class MainCharacter : MonoBehaviour
 
         Attack();
         FireBall();
+        Flame();
         Dodge();
         MoveCharacter();
         
