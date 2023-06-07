@@ -56,9 +56,10 @@ public class MainCharacter : MonoBehaviour
             pirates[i] = pirateObjects[i].transform;
         }
 
-        MoveCharacter();
         Attack();
         FireBall();
+        Dodge();
+        MoveCharacter();
         
         foreach (Transform pirate in pirates)
         {
@@ -105,5 +106,21 @@ public class MainCharacter : MonoBehaviour
             isfireball = false;
         }
         animator.SetBool("isfireball", isfireball);
+    }
+
+    private void Dodge()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+            {
+                rigidBody.velocity = new Vector2(6, rigidBody.velocity.y);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(-6, rigidBody.velocity.y);
+            }
+        }
     }
 }
