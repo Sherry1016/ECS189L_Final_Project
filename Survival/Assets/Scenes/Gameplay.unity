@@ -11640,6 +11640,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9010128498280031347, guid: e520ca305ffe9469c9f70cb7ffe1709f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4735964
+      objectReference: {fileID: 0}
+    - target: {fileID: -9010128498280031347, guid: e520ca305ffe9469c9f70cb7ffe1709f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.37069684
+      objectReference: {fileID: 0}
+    - target: {fileID: -9010128498280031347, guid: e520ca305ffe9469c9f70cb7ffe1709f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.026503235
+      objectReference: {fileID: 0}
+    - target: {fileID: -9010128498280031347, guid: e520ca305ffe9469c9f70cb7ffe1709f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.020269506
+      objectReference: {fileID: 0}
     - target: {fileID: -3719326230136144294, guid: e520ca305ffe9469c9f70cb7ffe1709f,
         type: 3}
       propertyPath: spawnSystem
@@ -11723,6 +11743,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5439929074141125822, guid: 7720d5915e3364a09aa4f3f48378f98d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.270338
+      objectReference: {fileID: 0}
+    - target: {fileID: -5439929074141125822, guid: 7720d5915e3364a09aa4f3f48378f98d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.4079415
+      objectReference: {fileID: 0}
+    - target: {fileID: -5439929074141125822, guid: 7720d5915e3364a09aa4f3f48378f98d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0073518455
+      objectReference: {fileID: 0}
+    - target: {fileID: -5439929074141125822, guid: 7720d5915e3364a09aa4f3f48378f98d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07296194
+      objectReference: {fileID: 0}
     - target: {fileID: 5907432118394791198, guid: 7720d5915e3364a09aa4f3f48378f98d,
         type: 3}
       propertyPath: spawnSystem
@@ -11816,6 +11856,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5249029294705084471, guid: 11f93df7fa40d42749a99ca141a497bd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.34327483
+      objectReference: {fileID: 0}
+    - target: {fileID: -5249029294705084471, guid: 11f93df7fa40d42749a99ca141a497bd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3784089
+      objectReference: {fileID: 0}
+    - target: {fileID: -5249029294705084471, guid: 11f93df7fa40d42749a99ca141a497bd,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0005838275
+      objectReference: {fileID: 0}
+    - target: {fileID: -5249029294705084471, guid: 11f93df7fa40d42749a99ca141a497bd,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08320129
+      objectReference: {fileID: 0}
     - target: {fileID: 464243702959621113, guid: 11f93df7fa40d42749a99ca141a497bd,
         type: 3}
       propertyPath: m_Name
