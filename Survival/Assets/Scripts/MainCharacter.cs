@@ -66,6 +66,7 @@ public class MainCharacter : MonoBehaviour
         }
 
         Attack();
+        StartCoroutine(Skill());
         FireBall();
         Flame();
         Dodge();
@@ -97,6 +98,24 @@ public class MainCharacter : MonoBehaviour
             {
                 Destroy(attackCollider);
             }
+        }
+    }
+    
+    private IEnumerator Skill()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            isfireball = true;
+            for(int i = 1; i <= 5; i++)
+            {
+                StartCoroutine(DelayedFireBall());
+                yield return new WaitForSeconds(0.5f);
+            }
+            animator.SetTrigger("fireball");
+        }
+        else
+        {
+            isfireball = false;
         }
     }
 
