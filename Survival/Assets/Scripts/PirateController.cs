@@ -114,4 +114,15 @@ public class PirateController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision);
+        if (collision.gameObject.tag == "Skull")
+        {
+            Debug.Log("Fire!");
+            blood = blood - 35;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

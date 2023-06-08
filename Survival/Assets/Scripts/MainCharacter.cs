@@ -177,7 +177,8 @@ public class MainCharacter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.CompareTag("Pirate")) {
+        if (other.gameObject.CompareTag("Pirate")) 
+        {
             if (isattack) {
                 Debug.Log("attack");
                 PirateController pirateController = other.gameObject.GetComponent<PirateController>();
