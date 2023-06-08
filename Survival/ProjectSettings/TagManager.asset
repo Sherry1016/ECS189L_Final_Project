@@ -9,6 +9,8 @@ TagManager:
   - Gem
   - Pirate
   - Captain
+  - Boom
+  - Slow
   layers:
   - Default
   - TransparentFX

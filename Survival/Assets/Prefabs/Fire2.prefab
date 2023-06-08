@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 3125093301620040346}
   - component: {fileID: 2013217679239833683}
   m_Layer: 9
-  m_Name: Fire
-  m_TagString: Skull
+  m_Name: Fire2
+  m_TagString: Slow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_Sprite: {fileID: 2064433192, guid: ea24e537a93d3e34a9d09aec182056fb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12198288, g: 0.8396226, b: 0.77091044, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

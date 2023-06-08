@@ -5,7 +5,9 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
     [SerializeField]
-    public GameObject productPrefab;
+    public GameObject productPrefab1;
+    public GameObject productPrefab2;
+    public GameObject productPrefab3;
     private Vector3 targetposition;
     private Transform[] pirates;
     public Animator animator;
@@ -65,7 +67,7 @@ public class MainCharacter : MonoBehaviour
             pirates[i] = pirateObjects[i].transform;
         }
 
-        Attack();
+        //Attack();
         StartCoroutine(Skill());
         FireBall();
         Flame();
@@ -80,7 +82,7 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
-    private void Attack()
+    /*private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.J) && Time.time > nextAttackTime)
         {
@@ -99,7 +101,7 @@ public class MainCharacter : MonoBehaviour
                 Destroy(attackCollider);
             }
         }
-    }
+    }*/
     
     private IEnumerator Skill()
     {
@@ -150,7 +152,20 @@ public class MainCharacter : MonoBehaviour
             direction = -0.7f;
         }
         Vector3 fireballPosition = transform.position + new Vector3(direction, -0.55f, 0f);
-        GameObject fireball = Instantiate(productPrefab, fireballPosition, Quaternion.identity);
+        int actionNumber = Random.Range(1, 10);
+        GameObject fireball = null;
+        if (actionNumber <= 5)
+        {
+            fireball = Instantiate(productPrefab1, fireballPosition, Quaternion.identity);
+        }
+        else if (actionNumber > 5 && actionNumber <= 8)
+        {
+            fireball = Instantiate(productPrefab2, fireballPosition, Quaternion.identity);
+        }
+        else if (actionNumber == 9)
+        {
+            fireball = Instantiate(productPrefab3, fireballPosition, Quaternion.identity);
+        }
         Rigidbody2D fireballRigidbody = fireball.GetComponent<Rigidbody2D>();
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
@@ -195,7 +210,7 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) 
+    /*void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.CompareTag("Pirate")) 
         {
@@ -205,5 +220,5 @@ public class MainCharacter : MonoBehaviour
                 pirateController.blood -= attackPower;
             }
         }
-    }
+    }*/
 }

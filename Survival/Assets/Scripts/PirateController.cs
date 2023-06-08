@@ -120,13 +120,32 @@ public class PirateController : MonoBehaviour
         if (collision.gameObject.tag == "Skull")
         {
             Debug.Log("Fire!");
-            blood = blood - 25;
+            blood = blood - 20;
             MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.AddForce(new Vector2(mainCharacter.direction * 7, 0), ForceMode2D.Impulse);
-            //this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x + mainCharacter.direction * 5, transform.position.y);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Slow")
+        {
+            Debug.Log("Slow!");
+            blood = blood - 15;
+            speed = speed / 2;
+            StartCoroutine(ResetSpeedAfterDelay(5));
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.tag == "Boom")
+        {
+            Debug.Log("Boom!");
+            blood = blood - 100;
             Destroy(collision.gameObject);
         }
     }
 
+    private IEnumerator ResetSpeedAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        speed = speed * 2;
+    }
 }
