@@ -27,11 +27,14 @@ public class MainCharacter : MonoBehaviour
     public float attackRange = 2.0f;
     public float attackHeight = 1.0f;
 
+    public int skillPoint;
+
     void Start()
     {
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isattack = false;
         isfireball = false;
+        skillPoint = 0;
     }
 
     private void MoveCharacter()
@@ -105,7 +108,7 @@ public class MainCharacter : MonoBehaviour
     
     private IEnumerator Skill()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O) && skillPoint > 0)
         {
             isfireball = true;
             for(int i = 1; i <= 5; i++)
@@ -114,6 +117,7 @@ public class MainCharacter : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
             animator.SetTrigger("fireball");
+            skillPoint--;
         }
         else
         {
@@ -207,6 +211,15 @@ public class MainCharacter : MonoBehaviour
             {
                 rigidBody.velocity = new Vector2(-6, rigidBody.velocity.y);
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Gem")
+        {
+            Destroy(collision.gameObject);
+            this.skillPoint++;
         }
     }
 

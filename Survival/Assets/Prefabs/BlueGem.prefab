@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3094026604306560399}
   - component: {fileID: 2228920993151096744}
   - component: {fileID: 6677275438675082005}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: BlueGem
   m_TagString: Gem
   m_Icon: {fileID: 0}

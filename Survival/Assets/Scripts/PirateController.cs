@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PirateController : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject productPrefab;
     public float speed;
     public float version;
     private float limitSpace;
@@ -73,6 +75,11 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem.MonsterKilled(gameObject);
             Destroy(gameObject);
+            int actionNumber = Random.Range(1, 3);
+            if (actionNumber == 1)
+            {
+                Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
+            }
         }
         
         animator.SetBool("isattack", isattack);
@@ -138,7 +145,7 @@ public class PirateController : MonoBehaviour
         else if (collision.gameObject.tag == "Boom")
         {
             Debug.Log("Boom!");
-            blood = blood - 100;
+            blood = blood - 50;
             Destroy(collision.gameObject);
         }
     }
