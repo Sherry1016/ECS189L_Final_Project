@@ -19,6 +19,7 @@ public class MainCharacter : MonoBehaviour
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
+    public float direction;
 
     private BoxCollider2D attackCollider;
     public float attackRange = 2.0f;
@@ -120,7 +121,7 @@ public class MainCharacter : MonoBehaviour
         // Wait for 0.75 second
         yield return new WaitForSeconds(0.75f);
         
-        float direction = 0f;
+        direction = 0f;
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
             direction = 0.7f;
