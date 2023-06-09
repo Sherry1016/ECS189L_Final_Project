@@ -29,6 +29,8 @@ public class MainCharacter : MonoBehaviour
     public float attackHeight = 1.0f;
 
     public int skillPoint;
+    private bool islanded = true;
+
 
     void Start()
     {
@@ -44,19 +46,36 @@ public class MainCharacter : MonoBehaviour
         xvalue = Input.GetAxis("Horizontal");
         yvalue = Input.GetAxis("Vertical");
 
+        float camHalfHeight = Camera.main.orthographicSize;
+        float camHalfWidth = camHalfHeight * Camera.main.aspect;
+
+        float minX = Camera.main.transform.position.x - camHalfWidth;
+        float maxX = Camera.main.transform.position.x + camHalfWidth;
+        float minY = Camera.main.transform.position.y - camHalfHeight;
+        float maxY = Camera.main.transform.position.y + camHalfHeight;
+
         if (xvalue != 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = xvalue < 0;
-            transform.Translate(xvalue * speed * Time.deltaTime * Vector2.right);
+            Vector3 moveDirection = xvalue * speed * Time.deltaTime * Vector2.right;
+            Vector3 newPosition = transform.position + moveDirection;
+
+            newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+            newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+            transform.position = newPosition;
         }
 
-        if (yvalue != 0)
+        if (yvalue != 0 && islanded == true)
         {
-            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
-            if (rigidBody.velocity.y==0)
-            {
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 8);
-            }
+            islanded = false;
+            animator.SetTrigger("jump");
+            StartCoroutine(Jump());
+        }
+
+        if (yvalue == 0)
+        {
+            islanded = true;
         }
 
         animator.SetBool("iswalk", xvalue != 0);
@@ -113,6 +132,20 @@ public class MainCharacter : MonoBehaviour
             }
         }
     }*/
+
+    private IEnumerator Jump()
+    {
+        if (yvalue != 0)
+        {
+            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            if (rigidBody.velocity.y == 0)
+            {
+                yield return new WaitForSeconds(0.5f); // add delay
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 8);
+            }
+        }
+    }
+
     
     private IEnumerator Skill()
     {
@@ -154,7 +187,7 @@ public class MainCharacter : MonoBehaviour
     private IEnumerator DelayedFireBall()
     {
         // Wait for 0.75 second
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.65f);
         
         direction = 0f;
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
