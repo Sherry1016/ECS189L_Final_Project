@@ -3052,7 +3052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1441719826}
-  speed: 0.75
+  speed: 0.5
   minBoundary: {x: -38.4, y: -10.8}
   maxBoundary: {x: 38.4, y: 10.8}
 --- !u!20 &519420031
