@@ -19,8 +19,8 @@ public class PirateController : MonoBehaviour
     public int blood;
     public int damage = 35;
     private SpawnSystem spawnSystem;
-    private float attackCooldown = 1.0f;
-    private float nextAttackTime = 0.0f;
+    private float attackCooldown = 1.5f;
+    private float lastAttackTime;
 
     void Start()
     {
@@ -34,6 +34,7 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem = spawnSystemObject.GetComponent<SpawnSystem>();
         }
+        lastAttackTime = -attackCooldown;
     }
 
     private void Update()
@@ -44,14 +45,13 @@ public class PirateController : MonoBehaviour
             isright = player.position.x >= transform.position.x;
             gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.position, speed * Time.deltaTime);
-            isattack = true;
-            /*if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version) && (isattack == true))
+            if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version) && (Time.time - lastAttackTime >= attackCooldown))
             {
                 Debug.Log("damage");
                 MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
                 mainCharacter.life -= damage;
-                isattack = false;
-            }*/
+                lastAttackTime = Time.time;
+            }
         }
         else
         {
@@ -78,7 +78,8 @@ public class PirateController : MonoBehaviour
             int actionNumber = Random.Range(1, 3);
             if (actionNumber == 1)
             {
-                Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
+                GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
+                product.transform.position = Vector3.MoveTowards(product.transform.position, player.position, 6 * Time.deltaTime);
             }
         }
         

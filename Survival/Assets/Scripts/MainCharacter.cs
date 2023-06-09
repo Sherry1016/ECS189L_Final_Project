@@ -108,20 +108,22 @@ public class MainCharacter : MonoBehaviour
     
     private IEnumerator Skill()
     {
-        if (Input.GetKeyDown(KeyCode.O) && skillPoint > 0)
+        if (Input.GetKeyDown(KeyCode.O))
         {
             isfireball = true;
+            animator.SetTrigger("fireball");
+            //animator.SetTrigger("attackPose");
             for(int i = 1; i <= 5; i++)
             {
                 StartCoroutine(DelayedFireBall());
                 yield return new WaitForSeconds(0.5f);
             }
-            animator.SetTrigger("fireball");
             skillPoint--;
         }
         else
         {
             isfireball = false;
+            //animator.ResetTrigger("attackPose");
         }
     }
 
