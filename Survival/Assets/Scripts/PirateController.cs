@@ -63,6 +63,7 @@ public class PirateController : MonoBehaviour
                 isright = targetposition.x >= transform.position.x;
                 gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
                 this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, speed * Time.deltaTime);
+                animator.SetBool("iswalk", true);
             }
             else
             {
@@ -70,6 +71,8 @@ public class PirateController : MonoBehaviour
                 isright = limitSpace >= transform.position.x;
                 gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
                 targetposition = new Vector3(limitSpace, transform.position.y, 0);
+                animator.SetBool("iswalk", false);
+                Debug.Log("change");
             }
         }
 
