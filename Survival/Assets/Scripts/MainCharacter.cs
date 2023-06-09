@@ -18,6 +18,7 @@ public class MainCharacter : MonoBehaviour
     private bool isattack;
     private bool isfireball;
     private bool isflame;
+    public bool isDead;
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
@@ -34,6 +35,7 @@ public class MainCharacter : MonoBehaviour
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isattack = false;
         isfireball = false;
+        isDead = false;
         skillPoint = 0;
     }
 
@@ -62,6 +64,11 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         GameObject[] pirateObjects = GameObject.FindGameObjectsWithTag("Pirate");
         pirates = new Transform[pirateObjects.Length];
     
@@ -73,7 +80,7 @@ public class MainCharacter : MonoBehaviour
         //Attack();
         StartCoroutine(Skill());
         FireBall();
-        Flame();
+        //Flame();
         Dodge();
         MoveCharacter();
         
@@ -81,7 +88,8 @@ public class MainCharacter : MonoBehaviour
         if (life <= 0)
         {
             Debug.Log("No blood");
-            //Destroy(gameObject);
+            //animator.SetBool("isdead", life <= 0);
+            isDead = true;
         }
     }
 
@@ -129,7 +137,7 @@ public class MainCharacter : MonoBehaviour
 
     private void FireBall()
     {
-        if (Input.GetKeyDown(KeyCode.K) && Time.time > nextAttackTime)
+        if (Input.GetKeyDown(KeyCode.J) && Time.time > nextAttackTime)
         {
             nextAttackTime = Time.time + attackCooldown;
             isfireball = true;
@@ -187,7 +195,7 @@ public class MainCharacter : MonoBehaviour
     }
 
 
-    private void Flame()
+    /*private void Flame()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -198,7 +206,7 @@ public class MainCharacter : MonoBehaviour
         {
             isflame = false;
         }
-    }
+    }*/
 
     private void Dodge()
     {

@@ -19,8 +19,6 @@ public class PirateController : MonoBehaviour
     public int blood;
     public int damage = 35;
     private SpawnSystem spawnSystem;
-    private float attackCooldown = 1.5f;
-    private float lastAttackTime;
 
     void Start()
     {
@@ -34,23 +32,27 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem = spawnSystemObject.GetComponent<SpawnSystem>();
         }
-        lastAttackTime = -attackCooldown;
     }
 
     private void Update()
     {
-        
+        MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
+        if (mainCharacter.isDead)
+        {
+            isattack = false;
+            //animator.SetBool("isattack", isattack);
+            return;
+        }
+
         if (Vector3.Distance(this.gameObject.transform.position, player.position) < version)
         {
             isright = player.position.x >= transform.position.x;
             gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.position, speed * Time.deltaTime);
-            if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version) && (Time.time - lastAttackTime >= attackCooldown))
+            if (!isattack)
             {
-                Debug.Log("damage");
-                MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
-                mainCharacter.life -= damage;
-                lastAttackTime = Time.time;
+                isattack = true;
+                StartCoroutine(AttackWithDelay());
             }
         }
         else
@@ -86,6 +88,40 @@ public class PirateController : MonoBehaviour
         animator.SetBool("isattack", isattack);
     }
 
+    private IEnumerator AttackWithDelay()
+    {
+        while (true)
+        {
+            if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version))
+            {
+                yield return new WaitForSeconds(Random.Range(1.5f, 3.0f));
+                if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version))
+                {
+                    Debug.Log("damage");
+                    MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
+                    mainCharacter.life -= damage;
+                    Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+                    if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+                    {
+                        rb.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        rb.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+                    }
+                }
+                else
+                {
+                    yield break;
+                }
+            }
+            else
+            {
+                yield break;
+            }
+        }
+    }
+
     
 
     // Update is called once per frame
@@ -116,15 +152,9 @@ public class PirateController : MonoBehaviour
     }*/
 
     //Has received motivation. A likely source is from on of the Captain's morale inducements.
-    public void Motivate()
-    {
-       
-
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision);
         if (collision.gameObject.tag == "Skull")
         {
             Debug.Log("Fire!");
