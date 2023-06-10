@@ -29,7 +29,7 @@ public class MainCharacter : MonoBehaviour
     public float attackRange = 2.0f;
     public float attackHeight = 1.0f;
 
-    public int skillPoint;
+    public int energe;
     private bool islanded = true;
     private Rigidbody2D rigidbody;
 
@@ -40,7 +40,7 @@ public class MainCharacter : MonoBehaviour
         isattack = false;
         isfireball = false;
         isDead = false;
-        skillPoint = 0;
+        energe = 30;
     }
 
     private void MoveCharacter()
@@ -151,7 +151,7 @@ public class MainCharacter : MonoBehaviour
     
     private IEnumerator Skill()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O) && energy >= 0)
         {
             isfireball = true;
             animator.SetTrigger("fireball");
@@ -309,7 +309,7 @@ public class MainCharacter : MonoBehaviour
         if (collision.gameObject.tag == "Gem")
         {
             Destroy(collision.gameObject);
-            this.skillPoint++;
+            energy = energe + 10;
         }
     }
 
