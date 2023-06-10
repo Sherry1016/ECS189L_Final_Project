@@ -12,9 +12,10 @@ public class MainCharacter : MonoBehaviour
     private Vector3 targetposition;
     private Transform[] pirates;
     public Animator animator;
-    public Image health;
-    public int life = 100;
-    public int maxLife = 100;
+    public Image lifeBar;
+    public Image energyBar;
+    public int life;
+    public const int maxLife = 100;
     private float xvalue;
     private float yvalue;
     public float speed;
@@ -24,11 +25,18 @@ public class MainCharacter : MonoBehaviour
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
+    private float skillCooldown = 1.0f;
+    private float nextSkillTime = 0.0f;
+    private float dodgeCooldown = 1.0f;
+    private float nextDodgeTime = 0.0f;
+    private float energyRecoveryCooldown = 1.0f;
+    private float nextEnergyRecoveryTime = 0.0f;
     public float direction;
 
     private BoxCollider2D attackCollider;
 
     public int energy;
+    public const int maxEnergy = 30;
     private bool islanded = true;
     private Rigidbody2D rigidbody;
 
@@ -38,6 +46,7 @@ public class MainCharacter : MonoBehaviour
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isfireball = false;
         isDead = false;
+        life = 100;
         energy = 30;
     }
 
@@ -83,7 +92,7 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
-
+        Debug.Log(energy);
         if (life <= 0 && !isDead)
         {
             Debug.Log("No blood");
@@ -94,6 +103,16 @@ public class MainCharacter : MonoBehaviour
         if (isDead)
         {
             return;
+        }
+
+        if (Time.time > nextEnergyRecoveryTime)
+        {
+            nextEnergyRecoveryTime = Time.time + energyRecoveryCooldown;
+            if (energy < maxEnergy)
+            {
+                energy++;
+                energyBar.fillAmount = (float)energy / maxEnergy;
+            }
         }
 
         GameObject[] pirateObjects = GameObject.FindGameObjectsWithTag("Pirate");
@@ -126,26 +145,31 @@ public class MainCharacter : MonoBehaviour
     
     private IEnumerator Skill()
     {
-        if (Input.GetKeyDown(KeyCode.O) && energy >= 0)
+        if (Time.time > nextSkillTime)
         {
-            isfireball = true;
-            animator.SetTrigger("fireball");
-            for(int i = 1; i <= 5; i++)
+            if (Input.GetKeyDown(KeyCode.O) && energy >= 10)
             {
-                StartCoroutine(DelayedSkill());
-                yield return new WaitForSeconds(0.1f);
+                nextSkillTime = Time.time + skillCooldown;
+                isfireball = true;
+                animator.SetTrigger("fireball");
+                for(int i = 1; i <= 6; i++)
+                {
+                    StartCoroutine(DelayedSkill());
+                    yield return new WaitForSeconds(0.1f);
+                }
+                energy = energy - 10;
+                energyBar.fillAmount = (float)energy / maxEnergy;
             }
-            energy = energy - 10;
-        }
-        else
-        {
-            isfireball = false;
+            else
+            {
+                isfireball = false;
+            }
         }
     }
     
     private IEnumerator DelayedSkill()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         
         direction = 0f;
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
@@ -248,16 +272,22 @@ public class MainCharacter : MonoBehaviour
 
     private void Dodge()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Time.time > nextDodgeTime)
         {
-            var rigidBody = gameObject.GetComponent<Rigidbody2D>();
-            if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+            if (Input.GetKeyDown(KeyCode.L) && energy >= 3)
             {
-                rigidBody.velocity = new Vector2(6, rigidBody.velocity.y);
-            }
-            else
-            {
-                rigidBody.velocity = new Vector2(-6, rigidBody.velocity.y);
+                nextDodgeTime = Time.time + dodgeCooldown;
+                var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+                if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+                {
+                    rigidBody.velocity = new Vector2(6, rigidBody.velocity.y);
+                }
+                else
+                {
+                    rigidBody.velocity = new Vector2(-6, rigidBody.velocity.y);
+                }
+                energy = energy - 3;
+                energyBar.fillAmount = (float)energy / maxEnergy;
             }
         }
     }
@@ -268,6 +298,7 @@ public class MainCharacter : MonoBehaviour
         {
             Destroy(collision.gameObject);
             energy = energy + 10;
+            energyBar.fillAmount = (float)energy / maxEnergy;
         }
     }
 
@@ -279,7 +310,7 @@ public class MainCharacter : MonoBehaviour
         }
 
         life -= 10; //damage;
-        health.fillAmount = life / maxLife;
+        lifeBar.fillAmount = (float)life / maxLife;
 
         animator.SetBool("ishurt", true);
         ishurt = true;
