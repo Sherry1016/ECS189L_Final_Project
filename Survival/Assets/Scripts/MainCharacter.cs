@@ -18,6 +18,7 @@ public class MainCharacter : MonoBehaviour
     private bool isattack;
     private bool isfireball;
     private bool isflame;
+    private bool ishurt;
     public bool isDead;
     public int attackPower = 35;
     private float attackCooldown = 1.0f;
@@ -30,10 +31,11 @@ public class MainCharacter : MonoBehaviour
 
     public int skillPoint;
     private bool islanded = true;
-
+    private Rigidbody2D rigidbody;
 
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isattack = false;
         isfireball = false;
@@ -83,6 +85,14 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
+
+        if (life <= 0 && !isDead)
+        {
+            Debug.Log("No blood");
+            animator.SetBool("isdead", life <= 0);
+            isDead = true;
+        }
+
         if (isDead)
         {
             return;
@@ -103,13 +113,6 @@ public class MainCharacter : MonoBehaviour
         Dodge();
         MoveCharacter();
         
-
-        if (life <= 0)
-        {
-            Debug.Log("No blood");
-            //animator.SetBool("isdead", life <= 0);
-            isDead = true;
-        }
     }
 
     /*private void Attack()
@@ -188,7 +191,7 @@ public class MainCharacter : MonoBehaviour
     {
         // Wait for 0.75 second
         yield return new WaitForSeconds(0.65f);
-        
+
         direction = 0f;
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
@@ -200,7 +203,7 @@ public class MainCharacter : MonoBehaviour
         }
         Vector3 fireballPosition = transform.position + new Vector3(direction, -0.55f, 0f);
         int actionNumber = Random.Range(1, 10);
-        GameObject fireball = null;
+        GameObject fireball = null;  
         if (actionNumber <= 5)
         {
             fireball = Instantiate(productPrefab1, fireballPosition, Quaternion.identity);
@@ -213,6 +216,7 @@ public class MainCharacter : MonoBehaviour
         {
             fireball = Instantiate(productPrefab3, fireballPosition, Quaternion.identity);
         }
+        fireball.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
         Rigidbody2D fireballRigidbody = fireball.GetComponent<Rigidbody2D>();
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
@@ -240,6 +244,8 @@ public class MainCharacter : MonoBehaviour
             isflame = false;
         }
     }*/
+
+
 
     private void Dodge()
     {
@@ -277,4 +283,37 @@ public class MainCharacter : MonoBehaviour
             }
         }
     }*/
+
+    public void GetHurt(int damage)
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        life -= 10; //damage;
+        
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+        {
+            rigidbody.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
+        }
+        else
+        {
+            rigidbody.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+        }
+
+        animator.SetBool("ishurt", true);
+        ishurt = true;
+        StartCoroutine(BoolDelay());
+    }
+
+    IEnumerator BoolDelay()
+    {
+        yield return new WaitForSeconds(0.35f);
+        if (ishurt)
+        {
+            animator.SetBool("ishurt", false);
+            ishurt = false;
+        }
+    }
 }

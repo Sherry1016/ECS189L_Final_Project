@@ -4,6 +4,14 @@ using UnityEngine;
 
 //using Captain.Command;
 
+public enum MonsterType
+{
+    None = 0,
+    Gobline,
+    Flyingeye,
+    Mushroom
+}
+
 public class PirateController : MonoBehaviour
 {
     [SerializeField]
@@ -19,6 +27,8 @@ public class PirateController : MonoBehaviour
     public int blood;
     public int damage = 35;
     private SpawnSystem spawnSystem;
+
+    public MonsterType monsterType = MonsterType.None;
 
     void Start()
     {
@@ -80,12 +90,34 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem.MonsterKilled(gameObject);
             Destroy(gameObject);
-            int actionNumber = Random.Range(1, 3);
+            /*int actionNumber = Random.Range(1, 3);
             if (actionNumber == 1)
             {
                 GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
                 product.transform.position = Vector3.MoveTowards(product.transform.position, player.position, 6 * Time.deltaTime);
+            }*/
+
+            var coinCount = 0;
+            switch (monsterType)
+            {
+                case MonsterType.Gobline:
+                    coinCount = 1;
+                    break;
+                case MonsterType.Flyingeye:
+                    coinCount = 2;
+                    break;
+                case MonsterType.Mushroom:
+                    coinCount = 3;
+                    break;
             }
+
+            for (int i = 0; i < coinCount; i++)
+            {
+                GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
+                product.transform.position = Vector3.MoveTowards(product.transform.position, player.position, 6 * Time.deltaTime);
+                Debug.Log("have prefab");
+            }
+            
         }
         
         animator.SetBool("isattack", isattack);
@@ -102,16 +134,7 @@ public class PirateController : MonoBehaviour
                 {
                     Debug.Log("damage");
                     MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
-                    mainCharacter.life -= damage;
-                    Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-                    if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
-                    {
-                        rb.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
-                    }
-                    else
-                    {
-                        rb.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
-                    }
+                    mainCharacter.GetHurt(damage);
                 }
                 else
                 {
@@ -125,38 +148,38 @@ public class PirateController : MonoBehaviour
         }
     }
 
-    
+
 
     // Update is called once per frame
-   /* void Update()
-    {
-        if (limitSpace > 0)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
+    /* void Update()
+     {
+         if (limitSpace > 0)
+         {
+             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+         }
+         else
+         {
+             gameObject.GetComponent<SpriteRenderer>().flipX = true;
+         }
 
-        var working = this.activeCommand.Execute(this.gameObject, this.productPrefab);
+         var working = this.activeCommand.Execute(this.gameObject, this.productPrefab);
 
-        this.gameObject.GetComponent<Animator>().SetBool("Exhausted", !working);
+         this.gameObject.GetComponent<Animator>().SetBool("Exhausted", !working);
 
-        float everyStep = speed * Time.deltaTime;
-        Vector3 targetposition = new Vector3(limitSpace, transform.position.y, 0);
-        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, everyStep);
+         float everyStep = speed * Time.deltaTime;
+         Vector3 targetposition = new Vector3(limitSpace, transform.position.y, 0);
+         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, everyStep);
 
-        if (Vector3.Distance(this.gameObject.transform.position, targetposition) < 0.1f)
-        {
-            limitSpace = Random.Range(-19, 19);
-        } 
-        
-    }*/
+         if (Vector3.Distance(this.gameObject.transform.position, targetposition) < 0.1f)
+         {
+             limitSpace = Random.Range(-19, 19);
+         } 
+
+     }*/
 
     //Has received motivation. A likely source is from on of the Captain's morale inducements.
-
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Skull")
         {

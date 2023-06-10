@@ -3418,6 +3418,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   blood: 0
   damage: 35
+  monsterType: 0
 --- !u!95 &559727864
 Animator:
   serializedVersion: 5
@@ -6779,6 +6780,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   blood: 0
   damage: 35
+  monsterType: 0
 --- !u!1 &1297054240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7730,7 +7732,7 @@ MonoBehaviour:
     type: 3}
   animator: {fileID: 1441719827}
   life: 100
-  speed: 4
+  speed: 8
   isDead: 0
   attackPower: 35
   direction: 0
@@ -7797,7 +7799,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7987,6 +7989,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   blood: 0
   damage: 35
+  monsterType: 0
 --- !u!95 &1446729678
 Animator:
   serializedVersion: 5
