@@ -82,7 +82,7 @@ public class PirateController : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
                 targetposition = new Vector3(limitSpace, transform.position.y, 0);
                 animator.SetBool("iswalk", false);
-                Debug.Log("change");
+                //Debug.Log("change");
             }
         }
 
@@ -90,14 +90,27 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem.MonsterKilled(gameObject);
             Destroy(gameObject);
-            /*int actionNumber = Random.Range(1, 3);
+            int range = 3;
+            switch (monsterType)
+            {
+                case MonsterType.Gobline:
+                    range = 4;
+                    break;
+                case MonsterType.Flyingeye:
+                    range = 5;
+                    break;
+                case MonsterType.Mushroom:
+                    range = 6;
+                    break;
+            }
+            int actionNumber = Random.Range(1, range);
             if (actionNumber == 1)
             {
                 GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-                product.transform.position = Vector3.MoveTowards(product.transform.position, player.position, 6 * Time.deltaTime);
-            }*/
+                Debug.Log("have prefab");
+            }
 
-            var coinCount = 0;
+            /*var coinCount = 0;
             switch (monsterType)
             {
                 case MonsterType.Gobline:
@@ -114,9 +127,8 @@ public class PirateController : MonoBehaviour
             for (int i = 0; i < coinCount; i++)
             {
                 GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-                product.transform.position = Vector3.MoveTowards(product.transform.position, player.position, 6 * Time.deltaTime);
                 Debug.Log("have prefab");
-            }
+            }*/
             
         }
         
@@ -133,7 +145,17 @@ public class PirateController : MonoBehaviour
                 if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version))
                 {
                     Debug.Log("damage");
+                    animator.SetBool("isattack", isattack);
                     MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
+                    Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+                    if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+                    {
+                        rb.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        rb.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+                    }
                     mainCharacter.GetHurt(damage);
                 }
                 else
