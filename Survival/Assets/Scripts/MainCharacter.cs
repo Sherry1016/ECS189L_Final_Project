@@ -127,7 +127,6 @@ public class MainCharacter : MonoBehaviour
         {
             isfireball = true;
             animator.SetTrigger("fireball");
-            //animator.SetTrigger("attackPose");
             for(int i = 1; i <= 5; i++)
             {
                 StartCoroutine(DelayedSkill());
@@ -277,15 +276,6 @@ public class MainCharacter : MonoBehaviour
         }
 
         life -= 10; //damage;
-        
-        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
-        {
-            rigidbody.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
-        }
-        else
-        {
-            rigidbody.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
-        }
 
         animator.SetBool("ishurt", true);
         ishurt = true;

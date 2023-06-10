@@ -145,7 +145,17 @@ public class PirateController : MonoBehaviour
                 if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version))
                 {
                     Debug.Log("damage");
+                    animator.SetBool("isattack", isattack);
                     MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
+                    Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+                    if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+                    {
+                        rb.AddForce(new Vector2(-5, 3), ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        rb.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+                    }
                     mainCharacter.GetHurt(damage);
                 }
                 else
