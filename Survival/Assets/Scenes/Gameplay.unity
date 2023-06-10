@@ -7732,7 +7732,9 @@ MonoBehaviour:
   productPrefab3: {fileID: 3125093301620040353, guid: a814b92c9c0dc874cbf56b6a075ea996,
     type: 3}
   animator: {fileID: 1441719827}
+  health: {fileID: 2015789059}
   life: 100
+  maxLife: 100
   speed: 5
   isDead: 0
   attackPower: 35
@@ -10892,11 +10894,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -11526,6 +11528,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7443970982435777448, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
+        type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 7443970982435777448, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
+        type: 3}
+      propertyPath: DestinationLevel
+      value: 
+      objectReference: {fileID: 468160287}
     - target: {fileID: -3918636315564490400, guid: 6fb1ca963ca2451489c49b788fde72a1,
         type: 3}
       propertyPath: Ground2
@@ -11632,16 +11644,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7443970982435777448, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
-        type: 3}
-      propertyPath: MainCamera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 7443970982435777448, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
-        type: 3}
-      propertyPath: DestinationLevel
-      value: 
-      objectReference: {fileID: 468160287}
     m_RemovedComponents:
     - {fileID: 990714323838146198, guid: 3fe587587ee1b4b33a8f7ae7ff738853, type: 3}
     m_RemovedGameObjects: []

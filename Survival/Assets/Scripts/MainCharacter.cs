@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class MainCharacter : MonoBehaviour
     private Vector3 targetposition;
     private Transform[] pirates;
     public Animator animator;
+    public Image health;
     public int life = 100;
+    public int maxLife = 100;
     private float xvalue;
     private float yvalue;
     public float speed;
@@ -276,6 +279,7 @@ public class MainCharacter : MonoBehaviour
         }
 
         life -= 10; //damage;
+        health.fillAmount = life / maxLife;
 
         animator.SetBool("ishurt", true);
         ishurt = true;
