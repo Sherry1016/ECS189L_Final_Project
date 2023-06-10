@@ -92,6 +92,11 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
+        lifeBar.transform.position = screenPos + new Vector3(0, 40, 0);
+        lifeBar.transform.localScale = new Vector3(10, 10, 1);
+        energyBar.transform.position = screenPos + new Vector3(0, 30, 0);
+        energyBar.transform.localScale = new Vector3(10, 10, 1);
         Debug.Log(energy);
         if (life <= 0 && !isDead)
         {
