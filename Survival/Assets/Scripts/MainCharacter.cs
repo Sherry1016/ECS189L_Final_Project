@@ -148,7 +148,6 @@ public class MainCharacter : MonoBehaviour
             }
         }
     }
-
     
     private IEnumerator Skill()
     {
@@ -159,16 +158,58 @@ public class MainCharacter : MonoBehaviour
             //animator.SetTrigger("attackPose");
             for(int i = 1; i <= 5; i++)
             {
-                StartCoroutine(DelayedFireBall());
-                yield return new WaitForSeconds(0.5f);
+                StartCoroutine(DelayedSkill());
+                yield return new WaitForSeconds(0.1f);
             }
-            skillPoint--;
+            energy = energy - 10;
         }
         else
         {
             isfireball = false;
-            //animator.ResetTrigger("attackPose");
         }
+    }
+    
+    private IEnumerator DelayedSkill()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+        direction = 0f;
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+        {
+            direction = 0.7f;
+        }
+        else if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+        {
+            direction = -0.7f;
+        }
+        float height = Random.Range(-1.8f, -0.5f);
+        Vector3 fireballPosition = transform.position + new Vector3(direction, height, 0f);
+        int actionNumber = Random.Range(1, 10);
+        GameObject fireball = null;
+        if (actionNumber <= 5)
+        {
+            fireball = Instantiate(productPrefab1, fireballPosition, Quaternion.identity);
+        }
+        else if (actionNumber > 5 && actionNumber <= 8)
+        {
+            fireball = Instantiate(productPrefab2, fireballPosition, Quaternion.identity);
+        }
+        else if (actionNumber == 9)
+        {
+            fireball = Instantiate(productPrefab3, fireballPosition, Quaternion.identity);
+        }
+        Rigidbody2D fireballRigidbody = fireball.GetComponent<Rigidbody2D>();
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+        {
+            fireballRigidbody.velocity = transform.right * 5;
+        }
+        else if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+        {
+            fireballRigidbody.velocity = transform.right * -5;
+        }
+        fireballRigidbody.velocity = new Vector2(fireballRigidbody.velocity.x, 0);
+        fireballRigidbody.gravityScale = 0;
+        Destroy(fireball, 2f);
     }
 
     private void FireBall()
