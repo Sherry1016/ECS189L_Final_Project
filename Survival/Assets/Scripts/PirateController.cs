@@ -25,7 +25,7 @@ public class PirateController : MonoBehaviour
     private bool isattack;
     public Animator animator;
     public int blood;
-    public int damage = 35;
+    public int damage;
     private SpawnSystem spawnSystem;
 
     public MonsterType monsterType = MonsterType.None;
@@ -90,7 +90,7 @@ public class PirateController : MonoBehaviour
         {
             spawnSystem.MonsterKilled(gameObject);
             Destroy(gameObject);
-            int range = 3;
+            int range = 3; // The probability of dropping a gem
             switch (monsterType)
             {
                 case MonsterType.Gobline:
@@ -156,6 +156,7 @@ public class PirateController : MonoBehaviour
                     {
                         rb.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
                     }
+                    mainCharacter.life -= damage; //damage
                     mainCharacter.GetHurt(damage);
                 }
                 else
@@ -206,17 +207,14 @@ public class PirateController : MonoBehaviour
         if (collision.gameObject.tag == "Skull")
         {
             Debug.Log("Fire!");
-            blood = blood - 20;
-            MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(mainCharacter.direction * 7, 0), ForceMode2D.Impulse);
+            blood -= 15;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Slow")
         {
             Debug.Log("Slow!");
-            blood = blood - 15;
-            speed = speed / 2;
+            blood = blood - 10;
+            speed = speed / 3;
             StartCoroutine(ResetSpeedAfterDelay(5));
             Destroy(collision.gameObject);
         }
@@ -224,7 +222,7 @@ public class PirateController : MonoBehaviour
         else if (collision.gameObject.tag == "Boom")
         {
             Debug.Log("Boom!");
-            blood = blood - 50;
+            blood = blood - 30;
             Destroy(collision.gameObject);
         }
     }
@@ -232,6 +230,6 @@ public class PirateController : MonoBehaviour
     private IEnumerator ResetSpeedAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        speed = speed * 2;
+        speed = speed * 3;
     }
 }

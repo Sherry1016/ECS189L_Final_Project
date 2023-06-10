@@ -297,7 +297,7 @@ public class MainCharacter : MonoBehaviour
         if (collision.gameObject.tag == "Gem")
         {
             Destroy(collision.gameObject);
-            energy = energy + 10;
+            energy = energy + 5;
             energyBar.fillAmount = (float)energy / maxEnergy;
         }
     }
@@ -309,7 +309,6 @@ public class MainCharacter : MonoBehaviour
             return;
         }
 
-        life -= 10; //damage;
         lifeBar.fillAmount = (float)life / maxLife;
 
         animator.SetBool("ishurt", true);
