@@ -17,7 +17,6 @@ public class PirateController : MonoBehaviour
 {
     [SerializeField]
     public GameObject productPrefab;
-    public Image bloodBar;
     public float speed;
     public float version;
     private float limitSpace;
@@ -27,7 +26,6 @@ public class PirateController : MonoBehaviour
     private bool isattack;
     public Animator animator;
     public int blood;
-    public int maxBlood;
     public int damage;
     private SpawnSystem spawnSystem;
     private Color initialColor;
@@ -37,7 +35,6 @@ public class PirateController : MonoBehaviour
     void Start()
     {
         initialColor = GetComponent<Renderer>().material.color;
-        maxBlood = blood;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         limitSpace = Random.Range(-19, 19);
         isright = limitSpace >= transform.position.x;
@@ -52,9 +49,6 @@ public class PirateController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
-        bloodBar.transform.position = screenPos + new Vector3(0, 45, 0);
-        bloodBar.transform.localScale = new Vector3(10, 10, 1);
         MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
         if (mainCharacter.isDead)
         {
@@ -197,7 +191,6 @@ public class PirateController : MonoBehaviour
         {
             //Debug.Log("Fire!");
             blood -= 15;
-            bloodBar.fillAmount = (float)blood / maxBlood;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Slow")
@@ -206,7 +199,6 @@ public class PirateController : MonoBehaviour
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.green;
             blood = blood - 10;
-            bloodBar.fillAmount = (float)blood / maxBlood;
             speed = speed / 3;
             StartCoroutine(ResetSpeedAfterDelay(5));
             Destroy(collision.gameObject);
@@ -216,7 +208,6 @@ public class PirateController : MonoBehaviour
         {
             //Debug.Log("Boom!");
             blood = blood - 30;
-            bloodBar.fillAmount = (float)blood / maxBlood;
             Destroy(collision.gameObject);
         }
     }
