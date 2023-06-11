@@ -30,11 +30,13 @@ public class PirateController : MonoBehaviour
     public int maxBlood;
     public int damage;
     private SpawnSystem spawnSystem;
+    private Color initialColor;
 
     public MonsterType monsterType = MonsterType.None;
 
     void Start()
     {
+        initialColor = GetComponent<Renderer>().material.color;
         maxBlood = blood;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         limitSpace = Random.Range(-19, 19);
@@ -221,6 +223,8 @@ public class PirateController : MonoBehaviour
         else if (collision.gameObject.tag == "Slow")
         {
             Debug.Log("Slow!");
+            Renderer renderer = GetComponent<Renderer>();
+            renderer.material.color = Color.green;
             blood = blood - 10;
             bloodBar.fillAmount = (float)blood / maxBlood;
             speed = speed / 3;
@@ -240,6 +244,7 @@ public class PirateController : MonoBehaviour
     private IEnumerator ResetSpeedAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        GetComponent<Renderer>().material.color = initialColor;
         speed = speed * 3;
     }
 }
