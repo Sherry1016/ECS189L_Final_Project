@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
+    public Image lose;
     [SerializeField]
     public GameObject productPrefab1;
     public GameObject productPrefab2;
@@ -42,6 +43,7 @@ public class MainCharacter : MonoBehaviour
 
     void Start()
     {
+        lose.gameObject.SetActive(false);
         rigidbody = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
@@ -106,6 +108,7 @@ public class MainCharacter : MonoBehaviour
 
         if (isDead)
         {
+            lose.gameObject.SetActive(true);
             return;
         }
 
@@ -308,11 +311,6 @@ public class MainCharacter : MonoBehaviour
 
     public void GetHurt(int damage)
     {
-        if (isDead)
-        {
-            return;
-        }
-
         lifeBar.fillAmount = (float)life / maxLife;
 
         animator.SetBool("ishurt", true);
