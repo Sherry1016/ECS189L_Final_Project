@@ -4491,7 +4491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 830454130}
   - component: {fileID: 830454132}
-  - component: {fileID: 830454131}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -4519,36 +4518,6 @@ RectTransform:
   m_AnchoredPosition: {x: -71, y: 8}
   m_SizeDelta: {x: -12, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &830454131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830454129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14c15b59e680e004eaaeb76c8c12223c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &830454132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4567,7 +4536,6 @@ GameObject:
   m_Component:
   - component: {fileID: 836792293}
   - component: {fileID: 836792295}
-  - component: {fileID: 836792294}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4599,42 +4567,6 @@ RectTransform:
   m_AnchoredPosition: {x: 12.999992, y: -37.75}
   m_SizeDelta: {x: 74.70001, y: 36.8}
   m_Pivot: {x: 0.46358278, y: 0.49999997}
---- !u!114 &836792294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836792292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9604077, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
-    m_FontStyle: 3
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Booty
-
-'
 --- !u!222 &836792295
 CanvasRenderer:
   m_ObjectHideFlags: 0
