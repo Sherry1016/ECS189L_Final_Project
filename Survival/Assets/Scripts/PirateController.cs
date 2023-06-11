@@ -116,28 +116,8 @@ public class PirateController : MonoBehaviour
             if (actionNumber == 1)
             {
                 GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-                Debug.Log("have prefab");
+                //Debug.Log("have prefab");
             }
-
-            /*var coinCount = 0;
-            switch (monsterType)
-            {
-                case MonsterType.Gobline:
-                    coinCount = 1;
-                    break;
-                case MonsterType.Flyingeye:
-                    coinCount = 2;
-                    break;
-                case MonsterType.Mushroom:
-                    coinCount = 3;
-                    break;
-            }
-
-            for (int i = 0; i < coinCount; i++)
-            {
-                GameObject product = Instantiate(productPrefab, transform.position + new Vector3(Random.Range(0, 5), 0, 0), Quaternion.identity);
-                Debug.Log("have prefab");
-            }*/
             
         }
         
@@ -153,7 +133,7 @@ public class PirateController : MonoBehaviour
                 yield return new WaitForSeconds(Random.Range(1.5f, 3.0f));
                 if ((Vector3.Distance(this.gameObject.transform.position, player.position) < version))
                 {
-                    Debug.Log("damage");
+                    //Debug.Log("damage");
                     animator.SetBool("isattack", isattack);
                     MainCharacter mainCharacter = player.GetComponent<MainCharacter>();
                     Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
@@ -215,14 +195,14 @@ public class PirateController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Skull")
         {
-            Debug.Log("Fire!");
+            //Debug.Log("Fire!");
             blood -= 15;
             bloodBar.fillAmount = (float)blood / maxBlood;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Slow")
         {
-            Debug.Log("Slow!");
+            //Debug.Log("Slow!");
             Renderer renderer = GetComponent<Renderer>();
             renderer.material.color = Color.green;
             blood = blood - 10;
@@ -234,7 +214,7 @@ public class PirateController : MonoBehaviour
 
         else if (collision.gameObject.tag == "Boom")
         {
-            Debug.Log("Boom!");
+            //Debug.Log("Boom!");
             blood = blood - 30;
             bloodBar.fillAmount = (float)blood / maxBlood;
             Destroy(collision.gameObject);

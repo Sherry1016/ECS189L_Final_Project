@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeleportCaptain : MonoBehaviour
 {
+    public Image win;
     public GameObject Ground2;
     public GameObject Ground3;
     public GameObject DestinationLevel;
     public Camera MainCamera;
+
+    void Start()
+    {
+        win.gameObject.SetActive(false);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,6 +26,11 @@ public class TeleportCaptain : MonoBehaviour
         else if (SpawnSystem.monstersByGround.ContainsKey(Ground3) && SpawnSystem.monstersByGround[Ground3].Count > 0)
         {
             DestinationLevel = GameObject.Find("Nighttime");
+        }
+        else
+        {
+            win.gameObject.SetActive(true);
+            return;
         }
 
         if(collision.gameObject.name == "Main Character")

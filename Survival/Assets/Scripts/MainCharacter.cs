@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
+    public Image win;
     public Image lose;
     [SerializeField]
     public GameObject productPrefab1;
@@ -95,6 +96,10 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
+        if (win.gameObject.activeSelf)
+        {
+            return;
+        }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
         lifeBar.transform.position = screenPos + new Vector3(0, 40, 0);
         lifeBar.transform.localScale = new Vector3(10, 10, 1);

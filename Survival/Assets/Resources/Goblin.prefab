@@ -130,7 +130,7 @@ MonoBehaviour:
   animator: {fileID: 7364001700670159860}
   blood: 100
   maxBlood: 100
-  damage: 15
+  damage: 25
   monsterType: 1
 --- !u!61 &6294561796109470292
 BoxCollider2D:
