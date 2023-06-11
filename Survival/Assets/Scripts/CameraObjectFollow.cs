@@ -14,6 +14,7 @@ public class CameraObjectFollow : MonoBehaviour
 
     void Start()
     {
+        this.transform.position = new Vector3(-19.2f, this.transform.position.y, this.transform.position.z);
         this.targetPosition = this.transform.position;
     }
     

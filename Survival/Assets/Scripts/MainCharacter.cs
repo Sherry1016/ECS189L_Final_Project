@@ -43,6 +43,7 @@ public class MainCharacter : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isfireball = false;
         isDead = false;
