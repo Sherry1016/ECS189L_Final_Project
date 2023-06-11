@@ -125,7 +125,7 @@ MonoBehaviour:
   productPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}
   bloodBar: {fileID: 2875595179556097184}
-  speed: 3
+  speed: 4
   version: 5
   animator: {fileID: 7364001700670159860}
   blood: 100

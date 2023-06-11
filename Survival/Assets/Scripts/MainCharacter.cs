@@ -40,12 +40,12 @@ public class MainCharacter : MonoBehaviour
     public int energy;
     public const int maxEnergy = 30;
     private bool islanded = true;
-    private Rigidbody2D rigidbody;
+    //private Rigidbody2D rigidbody;
 
     void Start()
     {
         lose.gameObject.SetActive(false);
-        rigidbody = GetComponent<Rigidbody2D>();
+        //rigidbody = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
         isfireball = false;

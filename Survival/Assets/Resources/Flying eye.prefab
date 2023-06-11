@@ -125,12 +125,12 @@ MonoBehaviour:
   productPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}
   bloodBar: {fileID: 1894734744645105024}
-  speed: 4
+  speed: 5
   version: 5
   animator: {fileID: 487682385173525721}
   blood: 75
   maxBlood: 75
-  damage: 25
+  damage: 20
   monsterType: 2
 --- !u!61 &5692883709903151767
 BoxCollider2D:
