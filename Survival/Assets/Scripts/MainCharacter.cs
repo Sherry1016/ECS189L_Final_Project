@@ -208,6 +208,7 @@ public class MainCharacter : MonoBehaviour
         {
             fireball = Instantiate(productPrefab3, fireballPosition, Quaternion.identity);
         }
+        fireball.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
         Rigidbody2D fireballRigidbody = fireball.GetComponent<Rigidbody2D>();
         if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
         {
