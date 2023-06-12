@@ -26,9 +26,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Producer
 
-**The producer coordinates the technical dependencies and basic team logistics. Responsibilities include but are not limited to creating a dependency chart for the significant development tasks for the game, coordinating team meetings, working with the other roles to integrate their work into the main project, deciding on the Git-based workflow (i.e. how everyone's work gets combined into release branches without breaking the project), and organizing the final presentation.**
-
-**While this role has fewer direct programming responsibilities, it requires understanding all parts of the development process. When performed well, the producer multiplies the effort of the entire team, which results in a better game project.**
+**Describe the steps you took in your role as producer. Typical items include group scheduling mechanism, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, depedency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
 ## User Interface
 
@@ -55,6 +53,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 # Sub-Roles
+
+## Cross-Platform
+
+**Describe the platforms you targeted for your game release. For each, describe the process and unique actions taken for each platform. What obstacles did you overcome? What was easier than expected?**
 
 ## Audio
 
