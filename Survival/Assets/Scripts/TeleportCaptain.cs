@@ -37,7 +37,8 @@ public class TeleportCaptain : MonoBehaviour
         {
             collision.gameObject.transform.position = new Vector2(-33.6f, this.DestinationLevel.transform.position.y + 3);
             this.MainCamera.transform.position = new Vector3(this.DestinationLevel.transform.position.x - 19.2f, this.DestinationLevel.transform.position.y, this.MainCamera.transform.position.z);
-            FindObjectOfType<SoundManager>().PlaySoundEffect("bomb");
+            // apply the sound when the main character was transport to the next sence.
+            FindObjectOfType<SoundManager>().PlaySoundEffect("transport");
         }
     }
 }

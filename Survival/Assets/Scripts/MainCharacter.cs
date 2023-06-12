@@ -121,6 +121,8 @@ public class MainCharacter : MonoBehaviour
         {
             animator.SetBool("isdead", life <= 0);
             isDead = true;
+            // if the player lose, play this sound.
+            FindObjectOfType<SoundManager>().PlaySoundEffect("lose");
         }
 
         if (isDead)
@@ -179,6 +181,8 @@ public class MainCharacter : MonoBehaviour
                 for(int i = 1; i <= 6; i++)
                 {
                     StartCoroutine(DelayedSkill());
+                    // Play a sound effect when the main character using the magic fire.
+                    FindObjectOfType<SoundManager>().PlaySoundEffect("fire");
                     yield return new WaitForSeconds(0.1f);
                 }
                 energy = energy - 10;
@@ -243,6 +247,8 @@ public class MainCharacter : MonoBehaviour
             isfireball = true;
             StartCoroutine(DelayedFireBall());
             animator.SetTrigger("fireball");
+             // Play a sound effect when the main character using the fire.
+            FindObjectOfType<SoundManager>().PlaySoundEffect("fire");
         }
         else
         {

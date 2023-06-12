@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c29e7f6006e364f9093aeaab4e52e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicTrack: Earth
+  musicTrack: bgm3
 --- !u!1 &475475276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,7 +3866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c29e7f6006e364f9093aeaab4e52e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicTrack: Wind
+  musicTrack: bgm2
 --- !u!1 &634141425
 GameObject:
   m_ObjectHideFlags: 0
@@ -10396,7 +10396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c29e7f6006e364f9093aeaab4e52e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicTrack: Fire
+  musicTrack: bgm1
 --- !u!4 &1802875505
 Transform:
   m_ObjectHideFlags: 0
@@ -11626,52 +11626,40 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-  - clip: {fileID: 8300000, guid: 12aab664c7e714a4ab29587eef11d834, type: 3}
+  - clip: {fileID: 8300000, guid: 5c1f95f8059074d379e8ee34784d7c7a, type: 3}
     audioSource: {fileID: 0}
-    title: Wind
+    title: bgm1
     volume: 1
     pitch: 1
     loop: 1
-  - clip: {fileID: 8300000, guid: af51277f059d39b44b4e12ff6879830d, type: 3}
+  - clip: {fileID: 8300000, guid: aa06cb08d7a6640fbb51ce86df80ec2b, type: 3}
     audioSource: {fileID: 0}
-    title: Earth
+    title: bgm2
     volume: 1
     pitch: 1
     loop: 1
-  - clip: {fileID: 8300000, guid: f78417a7777407c41a7b3817294f432c, type: 3}
+  - clip: {fileID: 8300000, guid: 20e5b9c89463a4335a3c386b845416aa, type: 3}
     audioSource: {fileID: 0}
-    title: Fire
+    title: bgm3
     volume: 1
     pitch: 1
     loop: 1
   sfxClips:
-  - clip: {fileID: 8300000, guid: 69a3e4be484d93a45a2f3c0ef933508f, type: 3}
+  - clip: {fileID: 8300000, guid: c987b495ac7084fe483253aaf3b4f680, type: 3}
     audioSource: {fileID: 0}
-    title: bomb
+    title: fire
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 8300000, guid: e2a74b3ffa81b044a95409b38cf1d87b, type: 3}
+  - clip: {fileID: 8300000, guid: c8a8f6ec1559e48939e021874b8a0bdb, type: 3}
     audioSource: {fileID: 0}
-    title: hit
+    title: transport
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 8300000, guid: 693dd5cf3dc1f154ea014f65ee463e8a, type: 3}
+  - clip: {fileID: 8300000, guid: 2df1abaff70fd4099bac2ae2fbac73f3, type: 3}
     audioSource: {fileID: 0}
-    title: bloop
-    volume: 1
-    pitch: 1
-    loop: 0
-  - clip: {fileID: 8300000, guid: 07f1fcd409748ec4484caa5c0e5e2099, type: 3}
-    audioSource: {fileID: 0}
-    title: chop
-    volume: 1
-    pitch: 1
-    loop: 0
-  - clip: {fileID: 8300000, guid: 0fcba1574cb4cb642bdbd80cc0d0d65d, type: 3}
-    audioSource: {fileID: 0}
-    title: clack
+    title: lose
     volume: 1
     pitch: 1
     loop: 0
