@@ -123,13 +123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productPrefab: {fileID: 7430569447165051818, guid: 8696b598a26aaf141abd683312c677d1,
     type: 3}
-  bloodBar: {fileID: 0}
   speed: 3
-  version: 5
+  version: 4
   animator: {fileID: 6234487186385999707}
-  blood: 150
-  maxBlood: 150
-  damage: 50
+  blood: 125
+  damage: 35
   monsterType: 3
 --- !u!61 &2959573574626439305
 BoxCollider2D:
