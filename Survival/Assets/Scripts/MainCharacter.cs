@@ -8,6 +8,8 @@ public class MainCharacter : MonoBehaviour
     public Button startButton;
     public Image win;
     public Image lose;
+    public Image BeginStory;
+    public Image EndStory;
     [SerializeField]
     public GameObject productPrefab1;
     public GameObject productPrefab2;
@@ -46,11 +48,14 @@ public class MainCharacter : MonoBehaviour
     private void OnStartButtonClick()
     {
         isStart = true;
+        BeginStory.gameObject.SetActive(true);
     }
 
     void Start()
     {
         startButton.onClick.AddListener(OnStartButtonClick);
+        BeginStory.gameObject.SetActive(false);
+        EndStory.gameObject.SetActive(false);
         lose.gameObject.SetActive(false);
         //rigidbody = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
@@ -110,6 +115,7 @@ public class MainCharacter : MonoBehaviour
 
         if (win.gameObject.activeSelf)
         {
+            EndStory.gameObject.SetActive(true);
             return;
         }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(this.gameObject.transform.position);
