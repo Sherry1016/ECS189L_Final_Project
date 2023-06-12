@@ -11620,7 +11620,7 @@ MonoBehaviour:
   sfxMixerGroup: {fileID: -5514887378846270790, guid: 20c2fc25cc8a72d439ece44caa80010d,
     type: 2}
   musicTracks:
-  - clip: {fileID: 8300000, guid: 693553294ce34f24f93202bc847e69a8, type: 3}
+  - clip: {fileID: 8300000, guid: e09661a87cf6b46288af6a026af6f980, type: 3}
     audioSource: {fileID: 0}
     title: Water
     volume: 1
@@ -11660,6 +11660,18 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 2df1abaff70fd4099bac2ae2fbac73f3, type: 3}
     audioSource: {fileID: 0}
     title: lose
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: bdb21ce348e3b459e9208837425355a5, type: 3}
+    audioSource: {fileID: 0}
+    title: jump
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: cbd8e64f2a3e94ddc89d7b722a0b7802, type: 3}
+    audioSource: {fileID: 0}
+    title: dodge
     volume: 1
     pitch: 1
     loop: 0
