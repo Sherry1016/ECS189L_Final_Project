@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
+    public Button startButton;
     public Image win;
     public Image lose;
     [SerializeField]
@@ -24,7 +25,7 @@ public class MainCharacter : MonoBehaviour
     private bool isfireball;
     private bool ishurt;
     public bool isDead;
-    public int attackPower = 35;
+    public bool isStart = false;
     private float attackCooldown = 1.0f;
     private float nextAttackTime = 0.0f;
     private float skillCooldown = 1.0f;
@@ -42,8 +43,14 @@ public class MainCharacter : MonoBehaviour
     private bool islanded = true;
     //private Rigidbody2D rigidbody;
 
+    private void OnStartButtonClick()
+    {
+        isStart = true;
+    }
+
     void Start()
     {
+        startButton.onClick.AddListener(OnStartButtonClick);
         lose.gameObject.SetActive(false);
         //rigidbody = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
@@ -96,6 +103,11 @@ public class MainCharacter : MonoBehaviour
 
     private void Update()
     {
+        if (isStart == false)
+        {
+            return;
+        }
+
         if (win.gameObject.activeSelf)
         {
             return;
