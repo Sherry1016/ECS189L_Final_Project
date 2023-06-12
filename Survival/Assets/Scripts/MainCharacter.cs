@@ -163,6 +163,7 @@ public class MainCharacter : MonoBehaviour
             var rigidBody = gameObject.GetComponent<Rigidbody2D>();
             if (rigidBody.velocity.y == 0)
             {
+                FindObjectOfType<SoundManager>().PlaySoundEffect("jump");
                 yield return new WaitForSeconds(0.5f); // add delay
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 8);
             }
@@ -309,6 +310,8 @@ public class MainCharacter : MonoBehaviour
             {
                 nextDodgeTime = Time.time + dodgeCooldown;
                 var rigidBody = gameObject.GetComponent<Rigidbody2D>();
+                // Play a sound effect when the main character defend.
+                FindObjectOfType<SoundManager>().PlaySoundEffect("dodge");
                 if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
                 {
                     rigidBody.velocity = new Vector2(6, rigidBody.velocity.y);
