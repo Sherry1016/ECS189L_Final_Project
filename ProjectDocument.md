@@ -8,7 +8,7 @@
 
 Key `A`: player move left.   
 Key `D`: player move right.  
-Key 'Space': player jump
+Key 'Space': player jump.  
 Key `J`: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage.).  
 Key `L`: dodge skill.  
 Key `O`: special skill (The character can use this skill to generate six random fireballs).  
