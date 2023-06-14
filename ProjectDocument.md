@@ -35,9 +35,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Movement/Physics (Shuyang Qian)
 **Name: Shuyang Qian  Email: syqian@ucdavis.edu  Github: ElaineQian09**
 
-- Preparation:
-Add three kinds of monster prefabs, in order to make the future physics effect, for example, attack, dead, add the `Box Collider 2D` and `Rigidbody 2D`. 
-Add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a good foundation for the follow-up work.
+- Preparation:  
+Add three kinds of monster prefabs, in order to make the future physics effect, for example, attack, dead, add the `Box Collider 2D` and `Rigidbody 2D`.  
+Add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a good foundation for the follow-up work.  
 
 * Main Character:
 1. Left and Right movement:
@@ -47,7 +47,7 @@ Then, we can convert it from -1 to 1 and put it into `xvalue`. Then calculate th
 2. Other Movement Effects of the Main Character:
 In addition, I better manage character movement expressions such as [attacks](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L249-L251), hurt, and dead by using the corresponding animation. I set the Bool value in the Parameters in the Animator of the Main Character. When the statement is true, it activates the animation, and then exits the animation, giving the player a smoother and more vivid experience. To make sure the hurt action is complete and smooth, add the 0.35 seconds [Delay](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L356)
 by using the `StartCoroutine()` and `IEnumerator`. 
-3. Physics
+3. Physics  
 Set the `Body Type` to `Dynamic` to better simulate the real-world situation.  
 Set the `tag` of the Main Character and with the help of the `Box Collider 2D`, can have a collision and pass through the Portal to enter the next level.
 Freeze the Rotation of z in the `Constraints` to make sure the Main Character still heads up and will not fall down stiffly.  
@@ -57,17 +57,18 @@ Set the `Gravity Scale` of the Main Character to 1.5 to make the jump more vivid
 + Monster:
 
 1. Creation of the monster: 
-We have three scenes and each scene has one ground. Create a `Spawnsystem.cs` to better manage different monsters that will be generated at different levels. Using this system will be easier to manage different monsters that have different settings which can make our game more playable: https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L22-L24 https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L34-L39. I also use the [for statement to create the monsters](https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L44-L52)
-Also changing the i number can change the number of monsters generated in each level.
+We have three scenes and each scene has one ground. Create a `Spawnsystem.cs` to better manage different monsters that will be generated at different levels. Using this system will be easier to manage different monsters that have different settings which can make our game more playable: https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L22-L24 https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L34-L39  
+I also use the [for statement to create the monsters](https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L44-L52). Also changing the i number can change the number of monsters generated in each level.
 
 2. Movement of the monster: 
 Using the `random.range` to get the x position and let it be the `targetpostion` to achieve random coordinate generation. According to the comparison between the new position and current position x value, the flip X of the character's sprite is assigned according to the positive and negative values between them to realize the character's orientation flip. Monsters also have the ability to track attacks in the set version:
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/342a7c30be1d99426c48d4853fb31654d0c30de0/Survival/Assets/Scripts/PirateController.cs#L60-L64. When the Main Character moves away from the Monsters, they will go back to normal and go to random locations again. In oder to better manage monsters’ behavior, I also declare [the enumeration of the MonsterType](https://github.com/Sherry1016/ECS189L_Final_Project/blob/6328c2dc05fe3ad822b395d2c4f03b43fa788d93/Survival/Assets/Scripts/PirateController.cs#L8-L14)
+https://github.com/Sherry1016/ECS189L_Final_Project/blob/342a7c30be1d99426c48d4853fb31654d0c30de0/Survival/Assets/Scripts/PirateController.cs#L60-L64  
+When the Main Character moves away from the Monsters, they will go back to normal and go to random locations again. In oder to better manage monsters’ behavior, I also declare [the enumeration of the MonsterType](https://github.com/Sherry1016/ECS189L_Final_Project/blob/6328c2dc05fe3ad822b395d2c4f03b43fa788d93/Survival/Assets/Scripts/PirateController.cs#L8-L14)
 
 
-3. Physics
-Set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them not have a gravity effect but can still get collided. 
-Set the Is `Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level.
+3. Physics  
+Set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them not have a gravity effect but can still get collided.  
+Set the Is `Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level.  
 
 ## Animation and Visuals
 
