@@ -24,11 +24,11 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer (Shuhao Gao, Shuyang Qian)
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanism, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, depedency/task tracking, Gantt charts, etc.), and repository management methodology.**
+Hosted the group meeting, led the team members to select [game model](https://docs.google.com/document/d/1NmPpcFJbgQ_VbXemW--UYIo7P9FYkh0jjyau3wRpQC0/edit?usp=sharing), [supervised the progress](https://docs.google.com/document/d/1z4qK4TqkN1sSSgll6bbFgbzSmZ5f1ZfK9YCcDeabOfM/edit), discussed with the team members in time how to modify the game elements, including movement/physics, user interface, animation, and audio, led the team members to make the schedule, and collected a lot of feedback from players on the game.
 
-## User Interface
+## User Interface (Shuhao Gao)
 **Name: Shuhao Gao**  
 **Email: shgao@ucdavis.edu**  
 **Github: Snackiller**
