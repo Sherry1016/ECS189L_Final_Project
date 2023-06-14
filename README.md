@@ -47,9 +47,13 @@ You should replay any **bold text** with your relevant information. Liberally us
 [Background: Free War Pixel Art 2D Backgrounds by Craftpix](https://craftpix.net/freebies/free-war-pixel-art-2d-backgrounds/)  
 [Background: Pixel Backgrounds Laboratory Dark 1-4 by ComradeCourage](https://www.deviantart.com/comradecourage/art/Pixel-Backgrounds-Laboratory-Dark-1-4-868674719)  
 
-> I was mainly in charge of creating the animations for the game. This involved designing actions for various elements such as the main character, monsters, teleportation portal, and spells.  
-> For the main character, I created basic movements like standing, walking, running, and getting hurt. I also added different attack actions, including two regular attacks, casting a fireball, and using flamejet. In the monster part, I designed four different types of monsters: goblins, fly eyes, mushrooms, and skeletons. Each monster has its own actions like walking, standing, and attacking. I also tried to add spellcasting actions for the monsters, but due to technical and time limitations, these actions were unused in the final game. The portal part consists of a sprite sheet for the teleportation portal and animations for its appearance. As for the spells, there were totally five different options, but since the main character focuses on fire magic, only the fireball spell was used in the game eventually.  
-> For every different item and character, I created an animation controller and edited the logic for transitions between actions. In order to facilitate some action transitions, I added triggers to some actions. For example, in order to allow the character to attack while moving, I added a trigger to the fireball action and used it in the [code](https://github.com/Sherry1016/ECS189L_Final_Project/blob/74691c39d3e861ae9cce1401316a26a6b09dc17b/Survival/Assets/Scripts/MainCharacter.cs#L256), allowing the character's actions to transition smoothly.
+I was mainly in charge of creating the animations for the game. This involved designing actions for various elements such as the main character, monsters, teleportation portal, and spells.  
+
+For the main character, I created basic movements like standing, walking, running, and getting hurt. I also added different attack actions, including two regular attacks, casting a fireball, and using flamejet. In the monster part, I designed four different types of monsters: goblins, fly eyes, mushrooms, and skeletons. Each monster has its own actions like walking, standing, and attacking. I also tried to add spellcasting actions for the monsters, but due to technical and time limitations, these actions were unused in the final game. The portal part consists of a sprite sheet for the teleportation portal and animations for its appearance. As for the spells, there were totally five different options, but since the main character focuses on fire magic, only the fireball spell was used in the game eventually.  
+
+I created corresponding folders and categorized the materials, all sprite sheets use none compression and their filter mode is point. For every different item and character, I created an animation controller and edited the logic for transitions between actions. In order to facilitate some action transitions, I added triggers to some actions. For example, in order to allow the character to attack while moving, I added a trigger to the fireball action and used it in the [code](https://github.com/Sherry1016/ECS189L_Final_Project/blob/74691c39d3e861ae9cce1401316a26a6b09dc17b/Survival/Assets/Scripts/MainCharacter.cs#L256), allowing the character's actions to transition smoothly. In order to make some attack actions coordinate smoothly with animations, I created some IEnumerators for fireball and jump, such as [DelayedFireBall](https://github.com/Sherry1016/ECS189L_Final_Project/blob/74691c39d3e861ae9cce1401316a26a6b09dc17b/Survival/Assets/Scripts/MainCharacter.cs#L205). This way, the occurrence of attack actions will not conflict with the animation. There are also some minor modifications, such as adjusting the position and frequency of the fireball shooting. The fireball is shot out from the position where the character raises their hand, and the character is restricted from attacking again before the previous attack action is over. Subsequently, to solve the problem of animation playback delay, I set all time durations to 0, and set an exit time of 1 for some animations.  
+
+I added a mechanism for [generating portals](https://github.com/Sherry1016/ECS189L_Final_Project/blob/dcb61bddb823942a5d65577e2b91c4eb92e876a7/Survival/Assets/Scripts/SpawnSystem.cs#L54), which determines whether to generate a portal by checking the number of remaining monsters in the current stage of the character. If the number of monsters in the current stage is 0, then the portal will be generated on the right side of the character and teleport the character to the far left side of the next stage. In addition to this, I modified the logic of the [camera](https://github.com/Sherry1016/ECS189L_Final_Project/blob/dcb61bddb823942a5d65577e2b91c4eb92e876a7/Survival/Assets/Scripts/CameraObjectFollow.cs#L28), limiting the x position of the camera within the range of the map, and imposed restrictions on the movement of the character, so that the range of character movement cannot exceed the display range of the screen, thereby limiting the size of the map.
 
 ## Input
 
@@ -94,9 +98,13 @@ Given that our game is a role-playing adventure set in a magical world on the br
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+#### presskit materials:
+[Survival](https://juditost.itch.io/survival?secret=0guHxVlXkENKlZyvOZCaO0yus)  
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+#### trailer:
+[Trailer](https://www.youtube.com/watch?v=qDfukOdoYq8)
+
+
 
 
 
