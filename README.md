@@ -146,6 +146,7 @@ Given that our game is a role-playing adventure set in a magical world on the br
 [Trailer](https://www.youtube.com/watch?v=qDfukOdoYq8)
 
 
+The web page for this game is a draft and has not been published. I gave a simple description of the game, included the materials we used in our game, as well as some game screenshots. The production of this trailer is also relatively simple. As neither my team members nor I have video editing experience, plus the production period of this video was during the final examination period. Under the dual constraints of technology and time, the production quality of the trailer is not high. In the video, I focused on showcasing the various mechanics and skills of the game. Finally, it ends on the game's title screen to conclude the trailer. I used online video editor [Clipchamp](https://app.clipchamp.com/) to create the trailer.  
 
 
 
