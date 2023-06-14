@@ -41,11 +41,11 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Animation and Visuals
 
 ### Below is the resources used in this game:
-[Portal: Animated 2D Portal Spritesheet by Cookiscuit](https://cookiscuit.itch.io/animated-2d-portal-spritesheet)
-[Monsters: Monsters Creatures Fantasy by Luiz Melo](https://luizmelo.itch.io/monsters-creatures-fantasy)
-[Main character: Free Wizard Sprite Sheets Pixel Art by Craftpix](https://craftpix.net/freebies/free-wizard-sprite-sheets-pixel-art/)
-[Background: Free War Pixel Art 2D Backgrounds by Craftpix](https://craftpix.net/freebies/free-war-pixel-art-2d-backgrounds/)
-[Background: Pixel Backgrounds Laboratory Dark 1-4 by ComradeCourage](https://www.deviantart.com/comradecourage/art/Pixel-Backgrounds-Laboratory-Dark-1-4-868674719)
+[Portal: Animated 2D Portal Spritesheet by Cookiscuit](https://cookiscuit.itch.io/animated-2d-portal-spritesheet)  
+[Monsters: Monsters Creatures Fantasy by Luiz Melo](https://luizmelo.itch.io/monsters-creatures-fantasy)  
+[Main character: Free Wizard Sprite Sheets Pixel Art by Craftpix](https://craftpix.net/freebies/free-wizard-sprite-sheets-pixel-art/)  
+[Background: Free War Pixel Art 2D Backgrounds by Craftpix](https://craftpix.net/freebies/free-war-pixel-art-2d-backgrounds/)  
+[Background: Pixel Backgrounds Laboratory Dark 1-4 by ComradeCourage](https://www.deviantart.com/comradecourage/art/Pixel-Backgrounds-Laboratory-Dark-1-4-868674719)  
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
