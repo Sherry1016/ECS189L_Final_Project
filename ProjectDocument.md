@@ -42,11 +42,18 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Input
+## Input (Zijun Ye)
+In our game, we use the keyboard to control our main characters.
 
-**Describe the default input configuration.**
+In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the player and give the corresponding action and skill back to the player.
 
-**Add an entry for each platform or input style your project supports.**
+["A"](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L71) for left move, "D" for left move and "space" for jump.
+
+["L"](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L315) for high speed and the main character will be able to dodge the monsters' attacks.
+
+["J"](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L251) for normal attack, the main character will launch a fireball.
+
+["O"](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L183) for ultimate skill, the main character will launch multiple fireballs and increase the attack power.
 
 ## Game Logic
 
