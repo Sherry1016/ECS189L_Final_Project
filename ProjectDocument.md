@@ -91,7 +91,7 @@ I add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a g
 
 * Main Character:
 1. Left and Right movement:  
-In the `MainCharacter.cs script`, I use the input system, with the help of the project settings Input Manager, can gain the command from the player: https://github.com/Sherry1016/ECS189L_Final_Project/blob/7a593d3498a23cda14f1751061998e329346b2d1/Survival/Assets/Scripts/MainCharacter.cs#L69-L72
+In the `MainCharacter.cs` script, I use the input system, with the help of the project settings Input Manager, can gain the command from the player: https://github.com/Sherry1016/ECS189L_Final_Project/blob/7a593d3498a23cda14f1751061998e329346b2d1/Survival/Assets/Scripts/MainCharacter.cs#L69-L72
 Then, we can convert it from -1 to 1 and put it into `xvalue`. Then calculate the moving point by multiplying`xvalue` (determine the moving direction ), `speed`, `Time.deltaTime`, and `Vector2.right`. At the same time, the flip X of the character sprite is assigned according to the positive and negative values of `xvalue` to realize the character's orientation flip: https://github.com/Sherry1016/ECS189L_Final_Project/blob/7a593d3498a23cda14f1751061998e329346b2d1/Survival/Assets/Scripts/MainCharacter.cs#L84
 
 2. Other Movement Effects of the Main Character:  
