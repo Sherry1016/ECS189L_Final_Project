@@ -75,6 +75,9 @@ I choose to set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them
 Set the `Is Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level. 
 
 ## Animation and Visuals
+**Name: ZeSheng Wang**  
+**Email: wzswang@ucdavis.edu**  
+**Github: WZS-Juditost**
 
 #### Below is the resources used in this game:
 [Portal: Animated 2D Portal Spritesheet by Cookiscuit](https://cookiscuit.itch.io/animated-2d-portal-spritesheet)  
@@ -136,6 +139,9 @@ Given that our game is a role-playing adventure set in a magical world on the br
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
 ## Press Kit and Trailer
+**Name: ZeSheng Wang**  
+**Email: wzswang@ucdavis.edu**  
+**Github: WZS-Juditost**
 
 #### presskit materials:
 [Survival](https://juditost.itch.io/survival?secret=0guHxVlXkENKlZyvOZCaO0yus)  
