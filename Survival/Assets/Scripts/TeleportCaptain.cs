@@ -30,6 +30,8 @@ public class TeleportCaptain : MonoBehaviour
         else
         {
             win.gameObject.SetActive(true);
+            FindObjectOfType<SoundManager>().StopPlayingMusic();
+            FindObjectOfType<SoundManager>().PlaySoundEffect("win");
             return;
         }
 

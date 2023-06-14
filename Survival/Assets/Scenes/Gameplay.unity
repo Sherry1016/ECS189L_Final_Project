@@ -3350,7 +3350,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 57, y: 10.8}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 10
 --- !u!114 &468160290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4816,7 +4816,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 57, y: 7.3}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 10
 --- !u!114 &588639556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12920,7 +12920,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 57, y: 10.8}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 10
 --- !u!1 &1818574465
 GameObject:
   m_ObjectHideFlags: 0
@@ -14604,6 +14604,12 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: cbd8e64f2a3e94ddc89d7b722a0b7802, type: 3}
     audioSource: {fileID: 0}
     title: dodge
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 3cfcea593d15a4bfa8ebfe1017e42018, type: 3}
+    audioSource: {fileID: 0}
+    title: win
     volume: 1
     pitch: 1
     loop: 0
