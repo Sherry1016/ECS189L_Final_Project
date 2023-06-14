@@ -6,11 +6,13 @@
 
 ## Gameplay Explanation ##
 
-**Key A and D: player's movement**
-**Key J: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage.)**
-**Key L: dodge skill**
-**Key O: special skill (The character can use this skill to generate six random fireballs)**
-
+Key `A`: player move left.   
+Key `D`: player move right.  
+Key `J`: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage.).  
+Key `L`: dodge skill.  
+Key `O`: special skill (The character can use this skill to generate six random fireballs).  
+#### Optimal strategy ####
+Move the character slowly to ensure the monster gets hurt in the longest distance. When there are at least 2 monsters attacking the player, press 'O' button to use the magic fireball attacking to increase the hurt to all enemies or press `L’ continually to dodge the monster faster.
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
