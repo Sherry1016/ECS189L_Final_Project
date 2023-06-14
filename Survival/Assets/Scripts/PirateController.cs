@@ -20,8 +20,8 @@ public class PirateController : MonoBehaviour
     public float speed;
     public float version;
     private float limitSpace;
-    private bool isright;
-    private Vector3 targetposition;
+    private bool isRight;
+    private Vector3 targetPosition;
     private Transform player;
     private bool isattack;
     public Animator animator;
@@ -37,9 +37,9 @@ public class PirateController : MonoBehaviour
         initialColor = GetComponent<Renderer>().material.color;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         limitSpace = Random.Range(-19, 19);
-        isright = limitSpace >= transform.position.x;
-        gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
-        targetposition = new Vector3(limitSpace, transform.position.y, 0);
+        isRight = limitSpace >= transform.position.x;
+        gameObject.GetComponent<SpriteRenderer>().flipX = !isRight;
+        targetPosition = new Vector3(limitSpace, transform.position.y, 0);
         GameObject spawnSystemObject = GameObject.Find("SpawnSystem");
         if (spawnSystemObject != null)
         {
@@ -59,8 +59,8 @@ public class PirateController : MonoBehaviour
 
         if (Vector3.Distance(this.gameObject.transform.position, player.position) < version)
         {
-            isright = player.position.x >= transform.position.x;
-            gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
+            isRight = player.position.x >= transform.position.x;
+            gameObject.GetComponent<SpriteRenderer>().flipX = !isRight;
             this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, player.position, speed * Time.deltaTime);
             if (!isattack)
             {
@@ -71,19 +71,19 @@ public class PirateController : MonoBehaviour
         else
         {
             isattack = false;
-            if (Vector3.Distance(this.gameObject.transform.position, targetposition) > 0.1f)
+            if (Vector3.Distance(this.gameObject.transform.position, targetPosition) > 0.1f)
             {
-                isright = targetposition.x >= transform.position.x;
-                gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
-                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, speed * Time.deltaTime);
+                isRight = targetPosition.x >= transform.position.x;
+                gameObject.GetComponent<SpriteRenderer>().flipX = !isRight;
+                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetPosition, speed * Time.deltaTime);
                 animator.SetBool("iswalk", true);
             }
             else
             {
                 limitSpace = Random.Range(-19, 19);
-                isright = limitSpace >= transform.position.x;
-                gameObject.GetComponent<SpriteRenderer>().flipX = !isright;
-                targetposition = new Vector3(limitSpace, transform.position.y, 0);
+                isRight = limitSpace >= transform.position.x;
+                gameObject.GetComponent<SpriteRenderer>().flipX = !isRight;
+                targetPosition = new Vector3(limitSpace, transform.position.y, 0);
                 animator.SetBool("iswalk", false);
                 //Debug.Log("change");
             }
@@ -153,35 +153,6 @@ public class PirateController : MonoBehaviour
             }
         }
     }
-
-
-
-    // Update is called once per frame
-    /* void Update()
-     {
-         if (limitSpace > 0)
-         {
-             gameObject.GetComponent<SpriteRenderer>().flipX = false;
-         }
-         else
-         {
-             gameObject.GetComponent<SpriteRenderer>().flipX = true;
-         }
-
-         var working = this.activeCommand.Execute(this.gameObject, this.productPrefab);
-
-         this.gameObject.GetComponent<Animator>().SetBool("Exhausted", !working);
-
-         float everyStep = speed * Time.deltaTime;
-         Vector3 targetposition = new Vector3(limitSpace, transform.position.y, 0);
-         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, targetposition, everyStep);
-
-         if (Vector3.Distance(this.gameObject.transform.position, targetposition) < 0.1f)
-         {
-             limitSpace = Random.Range(-19, 19);
-         } 
-
-     }*/
 
     //Has received motivation. A likely source is from on of the Captain's morale inducements.
    

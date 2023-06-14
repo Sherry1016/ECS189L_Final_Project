@@ -24,7 +24,7 @@ public class MainCharacter : MonoBehaviour
     private float xvalue;
     private float yvalue;
     public float speed;
-    private bool isfireball;
+    private bool isFireball;
     private bool ishurt;
     public bool isDead;
     public bool isStart = false;
@@ -60,7 +60,7 @@ public class MainCharacter : MonoBehaviour
         //rigidbody = GetComponent<Rigidbody2D>();
         transform.position = new Vector3(-33.6f, transform.position.y, transform.position.z);
         targetposition = new Vector3(transform.position.x, transform.position.y, 0);
-        isfireball = false;
+        isFireball = false;
         isDead = false;
         life = 100;
         energy = 30;
@@ -183,7 +183,7 @@ public class MainCharacter : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.O) && energy >= 10)
             {
                 nextSkillTime = Time.time + skillCooldown;
-                isfireball = true;
+                isFireball = true;
                 animator.SetTrigger("fireball");
                 for(int i = 1; i <= 6; i++)
                 {
@@ -197,7 +197,7 @@ public class MainCharacter : MonoBehaviour
             }
             else
             {
-                isfireball = false;
+                isFireball = false;
             }
         }
     }
@@ -251,7 +251,7 @@ public class MainCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && Time.time > nextAttackTime)
         {
             nextAttackTime = Time.time + attackCooldown;
-            isfireball = true;
+            isFireball = true;
             StartCoroutine(DelayedFireBall());
             animator.SetTrigger("fireball");
              // Play a sound effect when the main character using the fire.
@@ -259,7 +259,7 @@ public class MainCharacter : MonoBehaviour
         }
         else
         {
-            isfireball = false;
+            isFireball = false;
         }
 
     }
