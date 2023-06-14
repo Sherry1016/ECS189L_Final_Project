@@ -67,11 +67,19 @@ In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the p
 
 ## Audio
 
-**List your assets including their sources and licenses.**
+#### Background audio: ####
+[bgm1](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
+[bgm2](https://assetstore.unity.com/packages/audio/music/rpg-game-music-63051)  
+[bgm3](https://assetstore.unity.com/packages/audio/sound-fx/horror-game-essentials-153417)  
+#### Sound effects: ####
+[fire](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
+[jump](https://pixabay.com/sound-effects/human-impact-on-ground-6982/)  
+[dodge](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
+[transport](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
+[lose](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
+[win](https://pixabay.com/sound-effects/winfantasia-6912/). 
 
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
+I attached a location trigger script as the component to the corresponding three different terrains: daytime, sunset and nighttime. When the player enters the terrain, the corresponding background music is triggered and will automatically play. To ensure the corresponding uninterrupted background music throughout each level, we set the music as “play on awake” and “Loop”. I also add three action sound effects to the main character such as jump, dodge and attacking ,and add sounds to the portal to enhance the game feeling. Given that our game is a role-playing adventure set in a magical world on the brink of destruction, we have adopted a sound style that leans towards horror, tension, and excitement. This deliberate choice aligns with our game's theme and aims to elevate the immersive experience.
 
 ## Gameplay Testing
 
