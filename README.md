@@ -40,14 +40,19 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Animation and Visuals
 
-### Below is the resources used in this game:
+#### Below is the resources used in this game:
 [Portal: Animated 2D Portal Spritesheet by Cookiscuit](https://cookiscuit.itch.io/animated-2d-portal-spritesheet)  
 [Monsters: Monsters Creatures Fantasy by Luiz Melo](https://luizmelo.itch.io/monsters-creatures-fantasy)  
 [Main character: Free Wizard Sprite Sheets Pixel Art by Craftpix](https://craftpix.net/freebies/free-wizard-sprite-sheets-pixel-art/)  
 [Background: Free War Pixel Art 2D Backgrounds by Craftpix](https://craftpix.net/freebies/free-war-pixel-art-2d-backgrounds/)  
 [Background: Pixel Backgrounds Laboratory Dark 1-4 by ComradeCourage](https://www.deviantart.com/comradecourage/art/Pixel-Backgrounds-Laboratory-Dark-1-4-868674719)  
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+
+I was mainly in charge of creating the animations for the game. This involved designing actions for various elements such as the main character, monsters, teleportation portal, and spells.  
+For the main character, I created basic movements like standing, walking, running, and getting hurt. I also added different attack actions, including two regular attacks, casting a fireball, and using flamejet.  
+In the monster part, I designed four different types of monsters: goblins, fly eyes, mushrooms, and skeletons. Each monster has its own actions like walking, standing, and attacking. I also tried to add spellcasting actions for the monsters, but due to technical and time limitations, these actions were unused in the final game.  
+The portal part consists of a sprite sheet for the teleportation portal and animations for its appearance.  
+As for the spells, there were totally five different options, but since the main character focuses on fire magic, only the fireball spell was used in the game eventually.  
 
 ## Input
 
