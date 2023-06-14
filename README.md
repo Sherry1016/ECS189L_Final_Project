@@ -48,11 +48,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 [Background: Pixel Backgrounds Laboratory Dark 1-4 by ComradeCourage](https://www.deviantart.com/comradecourage/art/Pixel-Backgrounds-Laboratory-Dark-1-4-868674719)  
 
 
-I was mainly in charge of creating the animations for the game. This involved designing actions for various elements such as the main character, monsters, teleportation portal, and spells.  
-For the main character, I created basic movements like standing, walking, running, and getting hurt. I also added different attack actions, including two regular attacks, casting a fireball, and using flamejet.  
-In the monster part, I designed four different types of monsters: goblins, fly eyes, mushrooms, and skeletons. Each monster has its own actions like walking, standing, and attacking. I also tried to add spellcasting actions for the monsters, but due to technical and time limitations, these actions were unused in the final game.  
-The portal part consists of a sprite sheet for the teleportation portal and animations for its appearance.  
-As for the spells, there were totally five different options, but since the main character focuses on fire magic, only the fireball spell was used in the game eventually.  
+> I was mainly in charge of creating the animations for the game. This involved designing actions for various elements such as the main character, monsters, teleportation portal, and spells.  
+> For the main character, I created basic movements like standing, walking, running, and getting hurt. I also added different attack actions, including two regular attacks, casting a fireball, and using flamejet. In the monster part, I designed four different types of monsters: goblins, fly eyes, mushrooms, and skeletons. Each monster has its own actions like walking, standing, and attacking. I also tried to add spellcasting actions for the monsters, but due to technical and time limitations, these actions were unused in the final game. The portal part consists of a sprite sheet for the teleportation portal and animations for its appearance. As for the spells, there were totally five different options, but since the main character focuses on fire magic, only the fireball spell was used in the game eventually.  
+> For every different item and character, I created an animation controller and edited the logic for transitions between actions. In order to facilitate some action transitions, I added triggers to some actions. For example, in order to allow the character to attack while moving, I added a trigger to the fireball action and used it in the [code](https://github.com/Sherry1016/ECS189L_Final_Project/blob/74691c39d3e861ae9cce1401316a26a6b09dc17b/Survival/Assets/Scripts/MainCharacter.cs#L256), allowing the character's actions to transition smoothly.
 
 ## Input
 
