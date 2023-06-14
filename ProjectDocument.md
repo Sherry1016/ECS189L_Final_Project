@@ -133,6 +133,9 @@ In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the p
 ["O"](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L183) for ultimate skill, the main character will launch multiple fireballs and increase the attack power.
 
 ## Game Logic
+**Name: Wenhui Li**  
+**Email: whli@ucdavis.edu**  
+**Github: Wenhui1130**
 
 This game mode is a single player survival game, which includes three levels in total.  With the level increase, the player needs to survive against increasing difficulty levels or waves of enemies.
 
@@ -154,6 +157,10 @@ MainCharacter.cs:
 **Describe the platforms you targeted for your game release. For each, describe the process and unique actions taken for each platform. What obstacles did you overcome? What was easier than expected?**
 
 ## Audio
+## Game Logic
+**Name: Wenhui Li**  
+**Email: whli@ucdavis.edu**  
+**Github: Wenhui1130**
 
 #### Background audio: ####
 [bgm1](https://assetstore.unity.com/packages/audio/sound-fx/foley/fantasy-sfx-for-particle-distort-texture-effect-library-42146)  
