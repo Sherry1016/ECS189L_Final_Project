@@ -51,12 +51,23 @@ Hosted the group meeting, led the team members to select [game model](https://do
 
 * Made the character's skills. By releasing skills, the character can fire six fireballs of different effects, and it will deduct ten energies. At the same time, I also set the Dodge key for the character, the Dodge effect can remain for 1 second, and it will deduct three energies.
 
-* Set the monster attack character's judgment. When the character is in the attack range of the monster, the monster will initiate attack mode and deal damage to the character for 1.5 to 3 seconds. 
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L179-L247
+
+* Set the monster attack character's judgment. When the character is in the attack range of the monster, the monster will initiate attack mode and deal damage to the character for 1.5 to 3 seconds.
+
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/PirateController.cs#L121-L155
 
 * Designed that defeating enemy could drop gems randomly. When character got gem, he could get 5 energies.
 
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/PirateController.cs#L92-L116
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L335-L343
+
 
 * Designed the game's start interface, the interface where the character wins, and the interface where the character loses.
+
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L48-L52
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L56-L59
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/TeleportCaptain.cs#L32
 
 ## Movement/Physics (Shuyang Qian)
 **Name: Shuyang Qian**  
