@@ -2,7 +2,8 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+Survival is a 2D action-adventure game set in a world on the brink of destruction and ravaged by pollution. You play as a brave hero with magic as you navigate the obstacles to save your brother from the monsters created by the evil scientists in the lab and uncover the conspiracy behind it.
+
 
 ## Gameplay Explanation ##
 
