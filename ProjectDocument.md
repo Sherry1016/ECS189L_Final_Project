@@ -35,19 +35,19 @@ Hosted the group meeting, led the team members to select [game model](https://do
 
 * Set life bar and energy bar for the character in the game, the character's energy regenerates 1 per second, and set life and attack damage for the monster.
   
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L121-L125
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L140-L148
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L121-L125
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L140-L148
 
 * Removed the monster's blood bar and damage numbers to give the player a good game experience.
 
 * Added collision box and Rigidbody for characters and monsters. By adding collision box and Rigidbody, characters and monsters can be repelled and attacked.
 
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L150-L160
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L150-L160
 
 * Made remote attack for character attacks. The character can inflict damage on monsters by releasing fireballs. The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage.
 
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L249-L309
-https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/PirateController.cs#L159-L191
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/MainCharacter.cs#L249-L309
+  https://github.com/Sherry1016/ECS189L_Final_Project/blob/main/Survival/Assets/Scripts/PirateController.cs#L159-L191
 
 * Made the character's skills. By releasing skills, the character can fire six fireballs of different effects, and it will deduct ten energies. At the same time, I also set the Dodge key for the character, the Dodge effect can remain for 1 second, and it will deduct three energies.
 
