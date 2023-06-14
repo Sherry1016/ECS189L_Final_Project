@@ -34,9 +34,45 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
-## Movement/Physics
+## Movement/Physics (Shuyang Qian)
+**Name: Shuyang Qian**  
+**Email: syqian@ucdavis.edu**  
+**Github: ElaineQian09**
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+- Preparation:  
+Add three kinds of monster prefabs, in order to make the future physics effect, for example, attack, dead, add the `Box Collider 2D` and `Rigidbody 2D`.  
+Add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a good foundation for the follow-up work.  
+
+* Main Character:
+1. Left and Right movement:  
+In the `MainCharacter.cs script`, I use the input system, with the help of the project settings Input Manager, can gain the command from the player: https://github.com/Sherry1016/ECS189L_Final_Project/blob/7a593d3498a23cda14f1751061998e329346b2d1/Survival/Assets/Scripts/MainCharacter.cs#L69-L72
+Then, we can convert it from -1 to 1 and put it into `xvalue`. Then calculate the moving point by multiplying` xvalue` (determine the moving direction ), ` speed`, ` Time.deltaTime`, and `Vector2.right`. At the same time, the flip X of the character sprite is assigned according to the positive and negative values of `xvalue` to realize the character's orientation flip: https://github.com/Sherry1016/ECS189L_Final_Project/blob/7a593d3498a23cda14f1751061998e329346b2d1/Survival/Assets/Scripts/MainCharacter.cs#L84. 
+
+2. Other Movement Effects of the Main Character:
+In addition, I better manage character movement expressions such as [attacks](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L249-L251), hurt, and dead by using the corresponding animation. I set the Bool value in the Parameters in the Animator of the Main Character. When the statement is true, it activates the animation, and then exits the animation, giving the player a smoother and more vivid experience. To make sure the hurt action is complete and smooth, add the 0.35 seconds [Delay](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L356)
+by using the `StartCoroutine()` and `IEnumerator`. 
+3. Physics  
+I choose to set the `Body Type` to `Dynamic` to better simulate the real-world situation.  
+Set the `tag` of the Main Character and with the help of the `Box Collider 2D`, can have a collision and pass through the Portal to enter the next level.
+Freeze the Rotation of z in the `Constraints` to make sure the Main Character still heads up and will not fall down stiffly.  
+Set the `Gravity Scale` of the Main Character to 1.5 to make the jump more vivid.  
+
+
++ Monster:
+
+1. Creation of the monster: 
+We have three scenes and each scene has one ground. I Create a `Spawnsystem.cs` to better manage different monsters that will be generated at different levels. Using this system will be easier to manage different monsters that have different settings which can make our game more playable: https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L22-L24 https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L34-L39  
+I also use the [for statement to create the monsters](https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L44-L52). Also changing the i number can change the number of monsters generated in each level.
+
+2. Movement of the monster: 
+Using the `random.range` to get the x position and let it be the `targetpostion` to achieve random coordinate generation. According to the comparison between the new position and current position x value, the flip X of the character's sprite is assigned according to the positive and negative values between them to realize the character's orientation flip. Monsters also have the ability to track attacks in the set version:
+https://github.com/Sherry1016/ECS189L_Final_Project/blob/342a7c30be1d99426c48d4853fb31654d0c30de0/Survival/Assets/Scripts/PirateController.cs#L60-L64  
+When the Main Character moves away from the Monsters, they will go back to normal and go to random locations again. In oder to better manage monsters’ behavior, I also declare [the enumeration of the MonsterType](https://github.com/Sherry1016/ECS189L_Final_Project/blob/6328c2dc05fe3ad822b395d2c4f03b43fa788d93/Survival/Assets/Scripts/PirateController.cs#L8-L14)
+
+
+3. Physics  
+I choose to set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them not have a gravity effect but can still get collided.  
+Set the `Is Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level. 
 
 ## Animation and Visuals
 
@@ -82,11 +118,16 @@ I attached a location trigger script as the component to the corresponding three
 Given that our game is a role-playing adventure set in a magical world on the brink of destruction, we have adopted a sound style that leans towards horror, tension, and excitement. This deliberate choice aligns with our game's theme and aims to elevate the immersive experience.
 
 
-## Gameplay Testing
+## Gameplay Testing (Shuyang Qian)
+**Name: Shuyang Qian**  
+**Email: syqian@ucdavis.edu**  
+**Github: ElaineQian09**
 
-**Add a link to the full results of your gameplay tests.**
+- Game testing is very important for game development, as it can help our developers better improve our game playability. Our group did game testing from time to time. During our development process, each time when our group members push new files on GitHub, I will download them and make some notes for improvement, then I will communicate with my group members and then distribute tasks to each member in our group to deal with it. Testing needs to pay attention to many aspects. For example, I noticed that the hurt and attack animation is not smooth for the Main Character, so I canceled the Exit time to let the animation more smooth and give the player a better visual experience. I also find some potential problems in our game, like the monsters can not randomly move when they are close to each other and the Main Character may sometimes get stuck. This problem will cause our game to not run successfully. After communicating with my group members, we finally solved this problem.
 
-**Summarize the key findings from your gameplay tests.**
+- Game testing not only tests the game and finds some potential running problems but also tries to find the best presentation of the game. After testing the game many times, I choose to set the Gravity Scale Main Character to 1.5 instead of 1 (built-in value) to make the jump more vivid. We also set different speeds and damage amounts for different monsters, so that the game difficulty will be progressive. After testing the game again and again, our game became more and more playable and solved some potential problems that may let our game crushed.
+
+- I also do the game testing after everything is done. I invite ten people to play our game and here is the link for the [Observations and Playtester Comments form summary version](https://docs.google.com/document/d/1TPuzrFwl4hrnDEZRaEj5rH0Bu1S-puC1CbGLLLasNn4/edit?usp=sharing.). This form contains all my thoughts and findings when testing. I also let them rate our game. I made two tables to show the result more clearly: https://docs.google.com/spreadsheets/d/18lXD0Wz-vKrKnqIJ1FK3InlfIqK6n3yp6WoHyOBlZp4/edit?usp=sharing. 
 
 ## Narrative Design
 
