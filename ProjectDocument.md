@@ -80,16 +80,15 @@ In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the p
 [win](https://pixabay.com/sound-effects/winfantasia-6912/). 
 
 I attached a location trigger script as the component to the corresponding three different terrains: daytime, sunset and nighttime. When the player enters the terrain, the corresponding background music is triggered and will automatically play. To ensure the corresponding uninterrupted background music throughout each level, we set the music as “play on awake” and “Loop”. I also add three action sound effects to the main character such as jump, dodge and attacking ,and add sounds to the portal to enhance the game feeling. Given that our game is a role-playing adventure set in a magical world on the brink of destruction, we have adopted a sound style that leans towards horror, tension, and excitement. This deliberate choice aligns with our game's theme and aims to elevate the immersive experience.
-
 ## Gameplay Testing
 
 **Add a link to the full results of your gameplay tests.**
 
 **Summarize the key findings from your gameplay tests.**
 
-## Narrative Design
+## Narrative Design (Zijun Ye)
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+The inspiration for our game came from a TV show about the end of the world. We ultimately chose the idea because we wanted to encourage the protection of the environment and cherish our family. In the game, players will play as an older brother with magical powers in a pollution-ridden world, and in the process save his brother and reveal the conspiracy that caused the environmental pollution. This can serve as a powerful medium to raise awareness of the importance of environmental awareness. Through gameplay and narrative, players can witness the consequences of environmental neglect, prompting them to reflect on their impact on the world and the need to protect the environment.
 
 ## Press Kit and Trailer
 
