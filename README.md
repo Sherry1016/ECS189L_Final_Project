@@ -41,7 +41,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 - Preparation:  
 I add three kinds of monster prefabs, in order to make the future physics effect, for example, attack, dead, add the `Box Collider 2D` and `Rigidbody 2D`.  
-I Add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a good foundation for the follow-up work.  
+I add the `Box Collider 2D` and `Rigidbody 2D` for the Main Character to lay a good foundation for the follow-up work.  
 
 * Main Character:
 1. Left and Right movement:   
