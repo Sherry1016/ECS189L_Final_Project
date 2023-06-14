@@ -50,7 +50,7 @@ Then, we can convert it from -1 to 1 and put it into `xvalue`. Then calculate th
 In addition, I better manage character movement expressions such as [attacks](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L249-L251), hurt, and dead by using the corresponding animation. I set the Bool value in the Parameters in the Animator of the Main Character. When the statement is true, it activates the animation, and then exits the animation, giving the player a smoother and more vivid experience. To make sure the hurt action is complete and smooth, add the 0.35 seconds [Delay](https://github.com/Sherry1016/ECS189L_Final_Project/blob/2592e1029b0c4262da0a2b784cd087b08cef5c10/Survival/Assets/Scripts/MainCharacter.cs#L356)
 by using the `StartCoroutine()` and `IEnumerator`. 
 3. Physics  
-Set the `Body Type` to `Dynamic` to better simulate the real-world situation.  
+I choose to set the `Body Type` to `Dynamic` to better simulate the real-world situation.  
 Set the `tag` of the Main Character and with the help of the `Box Collider 2D`, can have a collision and pass through the Portal to enter the next level.
 Freeze the Rotation of z in the `Constraints` to make sure the Main Character still heads up and will not fall down stiffly.  
 Set the `Gravity Scale` of the Main Character to 1.5 to make the jump more vivid.  
@@ -59,7 +59,7 @@ Set the `Gravity Scale` of the Main Character to 1.5 to make the jump more vivid
 + Monster:
 
 1. Creation of the monster: 
-We have three scenes and each scene has one ground. Create a `Spawnsystem.cs` to better manage different monsters that will be generated at different levels. Using this system will be easier to manage different monsters that have different settings which can make our game more playable: https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L22-L24 https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L34-L39  
+We have three scenes and each scene has one ground. I Create a `Spawnsystem.cs` to better manage different monsters that will be generated at different levels. Using this system will be easier to manage different monsters that have different settings which can make our game more playable: https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L22-L24 https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L34-L39  
 I also use the [for statement to create the monsters](https://github.com/Sherry1016/ECS189L_Final_Project/blob/1528da97dca51d14ad23453bb1340ed5e3ac21b0/Survival/Assets/Scripts/SpawnSystem.cs#L44-L52). Also changing the i number can change the number of monsters generated in each level.
 
 2. Movement of the monster: 
@@ -69,8 +69,8 @@ When the Main Character moves away from the Monsters, they will go back to norma
 
 
 3. Physics  
-Set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them not have a gravity effect but can still get collided.  
-Set the Is `Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level.  
+I choose to set the `Body Type` in the `Rigidbody 2D` to `Kinematic` to let them not have a gravity effect but can still get collided.  
+Set the `Is Trigger` in the `Box Collider 2D` to let the monster not push each other when they move in the same level.  
 
 ## Animation and Visuals
 
@@ -125,7 +125,7 @@ I attached a location trigger script as the component to the corresponding three
 
 - Game testing not only tests the game and finds some potential running problems but also tries to find the best presentation of the game. After testing the game many times, I choose to set the Gravity Scale Main Character to 1.5 instead of 1 (built-in value) to make the jump more vivid. We also set different speeds and damage amounts for different monsters, so that the game difficulty will be progressive. After testing the game again and again, our game became more and more playable and solved some potential problems that may let our game crushed.
 
-- I also do the game testing after everything is done. I invite ten people to play our game and here is the link for the [Observations and Playtester Comments form summary version](https://docs.google.com/document/d/1TPuzrFwl4hrnDEZRaEj5rH0Bu1S-puC1CbGLLLasNn4/edit?usp=sharing.) I also let them rate our game. I made two tables to show the result more clearly: https://docs.google.com/spreadsheets/d/18lXD0Wz-vKrKnqIJ1FK3InlfIqK6n3yp6WoHyOBlZp4/edit?usp=sharing. 
+- I also do the game testing after everything is done. I invite ten people to play our game and here is the link for the [Observations and Playtester Comments form summary version](https://docs.google.com/document/d/1TPuzrFwl4hrnDEZRaEj5rH0Bu1S-puC1CbGLLLasNn4/edit?usp=sharing.). This form contains all my thoughts and findings when testing. I also let them rate our game. I made two tables to show the result more clearly: https://docs.google.com/spreadsheets/d/18lXD0Wz-vKrKnqIJ1FK3InlfIqK6n3yp6WoHyOBlZp4/edit?usp=sharing. 
 
 
 ## Narrative Design (Zijun Ye)
