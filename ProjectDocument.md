@@ -33,7 +33,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
 ## Movement/Physics (Shuyang Qian)
-**Name: Shuyang Qian  Email: syqian@ucdavis.edu  Github: ElaineQian09**
+**Name: Shuyang Qian**  
+**Email: syqian@ucdavis.edu**  
+**Github: ElaineQian09**
 
 - Preparation:  
 Add three kinds of monster prefabs, in order to make the future physics effect, for example, attack, dead, add the `Box Collider 2D` and `Rigidbody 2D`.  
@@ -115,7 +117,9 @@ In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the p
 
 I attached a location trigger script as the component to the corresponding three different terrains: daytime, sunset and nighttime. When the player enters the terrain, the corresponding background music is triggered and will automatically play. To ensure the corresponding uninterrupted background music throughout each level, we set the music as “play on awake” and “Loop”. I also add three action sound effects to the main character such as jump, dodge and attacking ,and add sounds to the portal to enhance the game feeling. Given that our game is a role-playing adventure set in a magical world on the brink of destruction, we have adopted a sound style that leans towards horror, tension, and excitement. This deliberate choice aligns with our game's theme and aims to elevate the immersive experience.
 ## Gameplay Testing (Shuyang Qian)
-**Name: Shuyang Qian  Email: syqian@ucdavis.edu  Github: ElaineQian09**
+**Name: Shuyang Qian**  
+**Email: syqian@ucdavis.edu**  
+**Github: ElaineQian09**
 
 - Game testing is very important for game development, as it can help our developers better improve our game playability. Our group did game testing from time to time. During our development process, each time when our group members push new files on GitHub, I will download them and make some notes for improvement, then I will communicate with my group members and then distribute tasks to each member in our group to deal with it. Testing needs to pay attention to many aspects. For example, I noticed that the hurt and attack animation is not smooth for the Main Character, so I canceled the Exit time to let the animation more smooth and give the player a better visual experience. I also find some potential problems in our game, like the monsters can not randomly move when they are close to each other and the Main Character may sometimes get stuck. This problem will cause our game to not run successfully. After communicating with my group members, we finally solved this problem.
 
