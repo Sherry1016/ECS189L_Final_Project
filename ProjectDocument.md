@@ -123,6 +123,10 @@ Set the `Is Trigger` in the `Box Collider 2D` to let the monster not push each o
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Input (Zijun Ye)
+**Name: Zijun Ye**  
+**Email: zijye@ucdavis.edu**  
+**Github: Sherry1016**
+
 In our game, we use the keyboard to control our main characters.
 
 In `MainCharacter.cs`, we use `GetKeyDown` to determine the key pressed by the player and give the corresponding action and skill back to the player.
@@ -189,6 +193,9 @@ I attached a location trigger script as the component to the corresponding three
 
 
 ## Narrative Design (Zijun Ye)
+**Name: Zijun Ye**  
+**Email: zijye@ucdavis.edu**  
+**Github: Sherry1016**
 
 The inspiration for our game came from a TV show about the end of the world. We ultimately chose the idea because we wanted to encourage the protection of the environment and cherish our family. In the game, players will play as an older brother with magical powers in a pollution-ridden world, and in the process save his brother and reveal the conspiracy that caused the environmental pollution. This can serve as a powerful medium to raise awareness of the importance of environmental awareness. Through gameplay and narrative, players can witness the consequences of environmental neglect, prompting them to reflect on their impact on the world and the need to protect the environment.
 
