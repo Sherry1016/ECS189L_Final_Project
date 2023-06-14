@@ -7,9 +7,9 @@
 ## Gameplay Explanation ##
 
 **Key A and D: player's movement**
-**Key J: normal attack**
+**Key J: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage.)**
 **Key L: dodge skill**
-**Key O: special skill**
+**Key O: special skill (The character can use this skill to generate six random fireballs)**
 
 
 **If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
