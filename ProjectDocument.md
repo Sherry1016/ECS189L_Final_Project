@@ -8,20 +8,14 @@ Survival is a 2D action-adventure game set in a world on the brink of destructio
 ## Gameplay Explanation ##
 
 Key `A and D`: player move left and move right. 
-<video src="movement.mp4" controls>
 
 Key `Space`: player jump. 
-<video src="jump.mp4" controls>
 
 Key `J`: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage) 
 
-<video src="attack_AdobeExpress.gif" autoplay loop></video>
-
 Key `L`: dodge skill. 
-<video src="dodge.mp4" controls>
 
 Key `O`: special skill (The character can use this skill to generate six random fireballs) 
-<video src="skill.mp4" controls>
 
 #### Optimal strategy ####
 Move the character slowly to ensure the monster gets hurt in the longest distance. When there are at least 2 monsters attacking the player, press 'O' button to use the magic fireball attacking to increase the hurt to all enemies or press `L’ continually to dodge the monster faster.
