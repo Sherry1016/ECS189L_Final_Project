@@ -17,6 +17,8 @@ Key `L`: dodge skill.
 
 Key `O`: special skill (The character can use this skill to generate six random fireballs) 
 
+For more information, please see this file: https://drive.google.com/drive/u/0/folders/11vY15RFK1PTqRRJDYEI4cjWMpGlpLXvg
+
 #### Optimal strategy ####
 Move the character slowly to ensure the monster gets hurt in the longest distance. When there are at least 2 monsters attacking the player, press 'O' button to use the magic fireball attacking to increase the hurt to all enemies or press `L’ continually to dodge the monster faster.
 
