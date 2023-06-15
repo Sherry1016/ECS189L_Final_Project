@@ -14,7 +14,7 @@ Key `Space`: player jump.
 <video src="jump.mp4" controls>
 
 Key `J`: normal attack (The character can randomly release one of three fireballs with different effects. Normal fireballs are orange color and have no special effects. Green fireballs can slow down monsters for 5 seconds while dealing damage. Purple fireballs deal great damage) 
-![](attack_AdobeExpress.gif)
+<video src="attack_AdobeExpress.gif" autoplay loop></video>
 
 Key `L`: dodge skill. 
 <video src="dodge.mp4" controls>
